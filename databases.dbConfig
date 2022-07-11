@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<databaseconfigs>
+    <databaseconfig name="FeedMeOnlineConnection" url="jdbc:postgresql://localhost/FeedMeOnline" driver="org.postgresql.Driver" user="admin" password="\u0097\u00E6\u0051\u001F\u00DA\u009C\u009B\u00E3\u004F\u00FE\u0067\u00D3\u004C\u000A\u008E\u0095\u00E0\u0076\u00EC\u00A9\u0024\u00CC\u003B\u0010\u00D6\u00D8\u00E8\u0056\u005C\u00C0\u00BE\u00D1\u0026\u0046\u00A7\u00A0\u0004\u0003\u00F6\u0046\u003B\u00D7\u005D\u00D6\u00BC\u0087\u0046\u009E\u0017\u00E9\u001A\u0083\u00DD\u00F6\u00E9\u0036\u0077\u00E8\u00FF\u0002\u000F\u0000\u0003\u00E7"/>
+</databaseconfigs>

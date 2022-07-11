@@ -1,0 +1,17 @@
+Restaurant #class
+true #isEntity
+feed.me.on.lin #namespace
+restaurant #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+address String #field
+address PERSISTENT #fieldModifier
+website String #field
+website PERSISTENT #fieldModifier
+phone String #field
+phone PERSISTENT #fieldModifier

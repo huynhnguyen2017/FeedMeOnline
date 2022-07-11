@@ -1,0 +1,15 @@
+ItemData #class
+true #isEntity
+feed.me.on.lin #namespace
+itemData #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+price Double #field
+price PERSISTENT #fieldModifier
+restaurantId Integer #field
+restaurantId PERSISTENT #fieldModifier

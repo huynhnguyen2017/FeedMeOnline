@@ -1,0 +1,13 @@
+Bill #class
+true #isEntity
+feed.me.on.lin #namespace
+bill #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+total Double #field
+total PERSISTENT #fieldModifier
+userId Integer #field
+userId PERSISTENT #fieldModifier

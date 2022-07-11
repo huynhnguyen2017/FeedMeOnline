@@ -1,0 +1,4 @@
+LoginDialogData #class
+feed.me.on.lin.LoginDialog #namespace
+account feed.me.on.lin.Account #field
+account PERSISTENT #fieldModifier

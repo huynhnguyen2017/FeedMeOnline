@@ -1,0 +1,15 @@
+Account #class
+true #isEntity
+feed.me.on.lin #namespace
+account #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+username String #field
+username PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier
+fullName String #field
+fullName PERSISTENT #fieldModifier

@@ -6,9 +6,9 @@ role String #field
 role PERSISTENT #fieldModifier
 restaurants java.util.List<feed.me.on.lin.Restaurant> #field
 restaurants PERSISTENT #fieldModifier
-items java.util.List<feed.me.on.lin.ItemData> #field
+items java.util.List<feed.me.on.lin.Menu> #field
 items PERSISTENT #fieldModifier
-newItem feed.me.on.lin.ItemData #field
+newItem feed.me.on.lin.Menu #field
 newItem PERSISTENT #fieldModifier
 newRestaurant feed.me.on.lin.Restaurant #field
 newRestaurant PERSISTENT #fieldModifier
@@ -16,7 +16,7 @@ restaurantId Integer #field
 restaurantId PERSISTENT #fieldModifier
 isTicketSaved Boolean #field
 isTicketSaved PERSISTENT #fieldModifier
-itemDeleted feed.me.on.lin.ItemData #field
+itemDeleted feed.me.on.lin.Menu #field
 itemDeleted PERSISTENT #fieldModifier
 isRestaurantDisabled String #field
 isRestaurantDisabled PERSISTENT #fieldModifier
@@ -24,5 +24,5 @@ isItemDisabled Boolean #field
 isItemDisabled PERSISTENT #fieldModifier
 orderingRestaurant feed.me.on.lin.Restaurant #field
 orderingRestaurant PERSISTENT #fieldModifier
-orderingItems java.util.List<feed.me.on.lin.ItemData> #field
+orderingItems java.util.List<feed.me.on.lin.Menu> #field
 orderingItems PERSISTENT #fieldModifier

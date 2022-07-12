@@ -7,7 +7,7 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -6585358853633561749L;
+  private static final long serialVersionUID = -2111320730247189653L;
 
   private feed.me.on.lin.Account account;
 
@@ -69,13 +69,13 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
     restaurants = _restaurants;
   }
 
-  private java.util.List<feed.me.on.lin.ItemData> items;
+  private java.util.List<feed.me.on.lin.Menu> items;
 
   /**
    * Gets the field items.
    * @return the value of the field items; may be null.
    */
-  public java.util.List<feed.me.on.lin.ItemData> getItems()
+  public java.util.List<feed.me.on.lin.Menu> getItems()
   {
     return items;
   }
@@ -84,18 +84,18 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
    * Sets the field items.
    * @param _items the new value of the field items.
    */
-  public void setItems(java.util.List<feed.me.on.lin.ItemData> _items)
+  public void setItems(java.util.List<feed.me.on.lin.Menu> _items)
   {
     items = _items;
   }
 
-  private feed.me.on.lin.ItemData newItem;
+  private feed.me.on.lin.Menu newItem;
 
   /**
    * Gets the field newItem.
    * @return the value of the field newItem; may be null.
    */
-  public feed.me.on.lin.ItemData getNewItem()
+  public feed.me.on.lin.Menu getNewItem()
   {
     return newItem;
   }
@@ -104,7 +104,7 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
    * Sets the field newItem.
    * @param _newItem the new value of the field newItem.
    */
-  public void setNewItem(feed.me.on.lin.ItemData _newItem)
+  public void setNewItem(feed.me.on.lin.Menu _newItem)
   {
     newItem = _newItem;
   }
@@ -169,13 +169,13 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
     isTicketSaved = _isTicketSaved;
   }
 
-  private feed.me.on.lin.ItemData itemDeleted;
+  private feed.me.on.lin.Menu itemDeleted;
 
   /**
    * Gets the field itemDeleted.
    * @return the value of the field itemDeleted; may be null.
    */
-  public feed.me.on.lin.ItemData getItemDeleted()
+  public feed.me.on.lin.Menu getItemDeleted()
   {
     return itemDeleted;
   }
@@ -184,7 +184,7 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
    * Sets the field itemDeleted.
    * @param _itemDeleted the new value of the field itemDeleted.
    */
-  public void setItemDeleted(feed.me.on.lin.ItemData _itemDeleted)
+  public void setItemDeleted(feed.me.on.lin.Menu _itemDeleted)
   {
     itemDeleted = _itemDeleted;
   }
@@ -249,13 +249,13 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
     orderingRestaurant = _orderingRestaurant;
   }
 
-  private java.util.List<feed.me.on.lin.ItemData> orderingItems;
+  private java.util.List<feed.me.on.lin.Menu> orderingItems;
 
   /**
    * Gets the field orderingItems.
    * @return the value of the field orderingItems; may be null.
    */
-  public java.util.List<feed.me.on.lin.ItemData> getOrderingItems()
+  public java.util.List<feed.me.on.lin.Menu> getOrderingItems()
   {
     return orderingItems;
   }
@@ -264,7 +264,7 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
    * Sets the field orderingItems.
    * @param _orderingItems the new value of the field orderingItems.
    */
-  public void setOrderingItems(java.util.List<feed.me.on.lin.ItemData> _orderingItems)
+  public void setOrderingItems(java.util.List<feed.me.on.lin.Menu> _orderingItems)
   {
     orderingItems = _orderingItems;
   }

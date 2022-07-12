@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 8116239299203267465L;
+  private static final long serialVersionUID = 758692748680222152L;
 
   /**
    * Identifier
@@ -36,44 +36,66 @@ public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     id = _id;
   }
 
-  private java.lang.Double total;
+  private java.lang.Double priceTotal;
 
   /**
-   * Gets the field total.
-   * @return the value of the field total; may be null.
+   * Gets the field priceTotal.
+   * @return the value of the field priceTotal; may be null.
    */
-  public java.lang.Double getTotal()
+  public java.lang.Double getPriceTotal()
   {
-    return total;
+    return priceTotal;
   }
 
   /**
-   * Sets the field total.
-   * @param _total the new value of the field total.
+   * Sets the field priceTotal.
+   * @param _priceTotal the new value of the field priceTotal.
    */
-  public void setTotal(java.lang.Double _total)
+  public void setPriceTotal(java.lang.Double _priceTotal)
   {
-    total = _total;
+    priceTotal = _priceTotal;
   }
 
-  private java.lang.Integer userId;
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Account account;
 
   /**
-   * Gets the field userId.
-   * @return the value of the field userId; may be null.
+   * Gets the field account.
+   * @return the value of the field account; may be null.
    */
-  public java.lang.Integer getUserId()
+  public feed.me.on.lin.Account getAccount()
   {
-    return userId;
+    return account;
   }
 
   /**
-   * Sets the field userId.
-   * @param _userId the new value of the field userId.
+   * Sets the field account.
+   * @param _account the new value of the field account.
    */
-  public void setUserId(java.lang.Integer _userId)
+  public void setAccount(feed.me.on.lin.Account _account)
   {
-    userId = _userId;
+    account = _account;
+  }
+
+  @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="bill", orphanRemoval=false)
+  private java.util.List<feed.me.on.lin.Orders> orders;
+
+  /**
+   * Gets the field orders.
+   * @return the value of the field orders; may be null.
+   */
+  public java.util.List<feed.me.on.lin.Orders> getOrders()
+  {
+    return orders;
+  }
+
+  /**
+   * Sets the field orders.
+   * @param _orders the new value of the field orders.
+   */
+  public void setOrders(java.util.List<feed.me.on.lin.Orders> _orders)
+  {
+    orders = _orders;
   }
 
 }

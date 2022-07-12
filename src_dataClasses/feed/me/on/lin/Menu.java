@@ -3,13 +3,13 @@ package feed.me.on.lin;
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class ItemData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+@javax.annotation.Generated(comments="This is the java file of the ivy data class Menu", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
 @javax.persistence.Entity
-@javax.persistence.Table(name="itemData")
-public class ItemData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
+@javax.persistence.Table(name="menu")
+public class Menu extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -1221506923570183073L;
+  private static final long serialVersionUID = -4615443783508476334L;
 
   /**
    * Identifier
@@ -76,13 +76,14 @@ public class ItemData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     price = _price;
   }
 
-  private java.lang.Integer restaurantId;
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Restaurant restaurantId;
 
   /**
    * Gets the field restaurantId.
    * @return the value of the field restaurantId; may be null.
    */
-  public java.lang.Integer getRestaurantId()
+  public feed.me.on.lin.Restaurant getRestaurantId()
   {
     return restaurantId;
   }
@@ -91,9 +92,30 @@ public class ItemData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
    * Sets the field restaurantId.
    * @param _restaurantId the new value of the field restaurantId.
    */
-  public void setRestaurantId(java.lang.Integer _restaurantId)
+  public void setRestaurantId(feed.me.on.lin.Restaurant _restaurantId)
   {
     restaurantId = _restaurantId;
+  }
+
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Orders orders;
+
+  /**
+   * Gets the field orders.
+   * @return the value of the field orders; may be null.
+   */
+  public feed.me.on.lin.Orders getOrders()
+  {
+    return orders;
+  }
+
+  /**
+   * Sets the field orders.
+   * @param _orders the new value of the field orders.
+   */
+  public void setOrders(feed.me.on.lin.Orders _orders)
+  {
+    orders = _orders;
   }
 
 }

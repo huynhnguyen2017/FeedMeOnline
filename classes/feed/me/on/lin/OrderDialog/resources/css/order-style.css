@@ -9,3 +9,9 @@
 div[id="form:itemFormDataId"] thead {
 	display: none;
 }
+
+
+table thead
+{
+    display: none;
+}

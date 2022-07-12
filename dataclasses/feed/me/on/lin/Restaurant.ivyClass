@@ -17,3 +17,12 @@ phone String #field
 phone PERSISTENT #fieldModifier
 createdAt java.util.Date #field
 createdAt PERSISTENT #fieldModifier
+allowNewInput Boolean #field
+allowNewInput PERSISTENT #fieldModifier
+menus java.util.List<feed.me.on.lin.Menu> #field
+menus PERSISTENT #fieldModifier
+menus ONE_TO_MANY #fieldAssociation
+menus #fieldCascadeTypes
+menus restaurantId #mappedByFieldName
+isValid java.util.Date #field
+isValid PERSISTENT #fieldModifier

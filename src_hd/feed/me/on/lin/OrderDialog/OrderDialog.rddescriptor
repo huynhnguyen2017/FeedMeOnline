@@ -11,7 +11,7 @@
         <inputParameter>
             <name>item</name>
             <description></description>
-            <parameterType>feed.me.on.lin.ItemData</parameterType>
+            <parameterType>feed.me.on.lin.Menu</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
@@ -35,6 +35,10 @@
     </method>
     <method>
         <name>testMethod</name>
+        <description></description>
+    </method>
+    <method>
+        <name>deleteOrder</name>
         <description></description>
     </method>
     <startMethod>

@@ -1,7 +1,7 @@
-ItemData #class
+Menu #class
 true #isEntity
 feed.me.on.lin #namespace
-itemData #dbTableName
+menu #dbTableName
 id Integer #field
 id Identifier #fieldComment
 id PERSISTENT #fieldModifier
@@ -11,5 +11,11 @@ name String #field
 name PERSISTENT #fieldModifier
 price Double #field
 price PERSISTENT #fieldModifier
-restaurantId Integer #field
+restaurantId feed.me.on.lin.Restaurant #field
 restaurantId PERSISTENT #fieldModifier
+restaurantId MANY_TO_ONE #fieldAssociation
+restaurantId #fieldCascadeTypes
+orders feed.me.on.lin.Orders #field
+orders PERSISTENT #fieldModifier
+orders MANY_TO_ONE #fieldAssociation
+orders #fieldCascadeTypes

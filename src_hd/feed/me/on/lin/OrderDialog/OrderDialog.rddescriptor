@@ -5,6 +5,38 @@
         <name>save</name>
         <description></description>
     </method>
+    <method>
+        <name>delete</name>
+        <description></description>
+        <inputParameter>
+            <name>item</name>
+            <description></description>
+            <parameterType>feed.me.on.lin.ItemData</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>checkNewRestaurant</name>
+        <description></description>
+    </method>
+    <method>
+        <name>inputNewFood</name>
+        <description></description>
+    </method>
+    <method>
+        <name>displayOrderingTicketDetail</name>
+        <description></description>
+        <inputParameter>
+            <name>restaurant</name>
+            <description></description>
+            <parameterType>feed.me.on.lin.Restaurant</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>testMethod</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

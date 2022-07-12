@@ -15,3 +15,5 @@ website String #field
 website PERSISTENT #fieldModifier
 phone String #field
 phone PERSISTENT #fieldModifier
+createdAt java.util.Date #field
+createdAt PERSISTENT #fieldModifier

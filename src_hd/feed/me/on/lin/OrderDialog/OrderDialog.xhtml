@@ -36,11 +36,13 @@
 								oncomplete="PF('createOrderingTicket').show();" value="New"
 								update="form" />
 						</div>
-						<p:dataTable var="newRestaurant" value="#{data.restaurants}">
-							<p:column>
-								<h:outputText value="#{newRestaurant.name}" />
-							</p:column>
-						</p:dataTable>
+
+						<ui:repeat value="#{data.restaurants}" var="newRestaurant">
+							<h:commandButton update="orderingDetailId, itemFormDataId"
+								style="position: relative; width: 99%; margin-top: 2px;"
+								value="#{newRestaurant.name}"
+								actionListener="#{logic.displayOrderingTicketDetail(newRestaurant)}" />
+						</ui:repeat>
 
 
 
@@ -49,41 +51,45 @@
 
 					<p:layoutUnit position="center" style="height: 100%">
 						<div class="card">
-								<p:panel style="border: 1px solid black; height: 100px;">
-									<h3 style="float: left;">Ordering Detail</h3>
-									<h:panelGroup style="float: right">
-										<p:commandButton value="Purchase" />
-										<p:commandButton value="Delete" />
-										<p:commandButton value="My Order" />
-									</h:panelGroup>
-								</p:panel>
-								<p:panel>
-									<h:panelGroup>
-										<p:outputLabel value="newRestaurant: " />
-										<h:outputText value="" />
-										<p:outputLabel value="Website: " style="margin-left: 50px;" />
-										<h:outputText value="" />
-										<p:outputLabel value="Phone: " style="margin-left: 50px;" />
-										<h:outputText value="" />
-										<p:outputLabel value="Created Date: "
-											style="margin-left: 50px;" />
-										<h:outputText value="" />
-										<p:outputLabel value="Total: " style="margin-left: 50px;" />
-										<h:outputText value="" />
-									</h:panelGroup>
-								</p:panel>
+							<p:panel style="border: 1px solid black; height: 100px;">
+								<h3 style="float: left;">Ordering Detail</h3>
+								<h:panelGroup style="float: right">
+									<p:commandButton value="Purchase" />
+									<p:commandButton value="Delete" />
+									<p:commandButton value="My Order" />
+								</h:panelGroup>
+							</p:panel>
+							<p:panel>
+								<h:panelGroup id="orderingDetailId">
+									<p:outputLabel value="Restaurant: " />
+									<h:outputText value="#{data.orderingRestaurant.name}" />
+									<p:outputLabel value="Website: " style="margin-left: 50px;" />
+									<h:outputText value="#{data.orderingRestaurant.website}" />
+									<p:outputLabel value="Phone: " style="margin-left: 50px;" />
+									<h:outputText value="#{data.orderingRestaurant.phone}" />
+									<p:outputLabel value="Created Date: "
+										style="margin-left: 50px;" />
+									<h:outputText value="" />
+									<p:outputLabel value="Total: " style="margin-left: 50px;" />
+									<h:outputText value="" />
+								</h:panelGroup>
+							</p:panel>
 
-								<p:panel>
-									<p:dataTable border="0" var="item" value="#{data.items}">
-										<p:column>
-											<h:outputText value="#{item.name}" />
-										</p:column>
-										<p:column>
-											<h:outputText value="#{item.price}" />
-											<h:outputText value="Address" />
-										</p:column>
-									</p:dataTable>
-								</p:panel>
+							<p:panel>
+								<p:dataTable id="itemFormDataId" style="border-style: none;"
+									var="item" value="#{data.orderingItems}">
+									<p:column style="width: 10%; text-align: center;">
+										<h:outputText value="#{item.name}" />
+									</p:column>
+									<p:column style="border: none;">
+										<p:outputLabel value="Price: " />
+										<h:outputText value="#{item.price}" />
+										<br />
+										<p:outputLabel value="Whose: " />
+										<h:outputText value="AnyOne" />
+									</p:column>
+								</p:dataTable>
+							</p:panel>
 
 						</div>
 
@@ -94,51 +100,75 @@
 					widgetVar="createOrderingTicket" modal="true">
 					<h3>Create Ordering Ticket</h3>
 					<p:outputLabel value="Restaurant(*): " />
-					<p:selectOneMenu id="option" value="#{data.newRestaurant}">
+					<p:selectOneMenu id="option" value="#{data.restaurantId}">
+						<f:selectItem itemValue="#{null}" itemLabel="Choose one..." />
 						<f:selectItems value="#{data.restaurants}" var="newRestaurant"
 							itemLabel="#{newRestaurant.name}" itemValue="#{newRestaurant.id}" />
+						<f:selectItem itemValue="250000000" itemLabel="New Restaurant" />
+						<p:ajax listener="#{logic.checkNewRestaurant}"
+							oncomplete="updateRestaurantInput()" />
 					</p:selectOneMenu>
+					<p:remoteCommand name="updateRestaurantInput"
+						update="newRestaurantId" />
 					<br />
-					<p:outputLabel value="Name: " />
-					<p:inputText value="#{data.newRestaurant.name}" />
-					<br />
-					<p:outputLabel value="Website: " />
-					<p:inputText value="#{data.newRestaurant.website}" />
-					<br />
-					<p:outputLabel value="Phone: " />
-					<p:inputText value="#{data.newRestaurant.phone}" />
-					<br />
-					<p:selectBooleanCheckbox value="" itemLabel="Order out of list"></p:selectBooleanCheckbox>
+					<h:panelGroup id="newRestaurantId">
+						<p:outputLabel value="Name: " />
+						<p:inputText disabled="#{data.isRestaurantDisabled}"
+							value="#{data.newRestaurant.name}" />
+						<br />
+						<p:outputLabel value="Website: " />
+						<p:inputText disabled="#{data.isRestaurantDisabled}"
+							value="#{data.newRestaurant.website}" />
+						<br />
+						<p:outputLabel value="Phone: " />
+						<p:inputText disabled="#{data.isRestaurantDisabled}"
+							value="#{data.newRestaurant.phone}" />
+						<br />
+						<p:selectBooleanCheckbox value="#{data.isItemDisabled}"
+							itemLabel="Order out of list">
+							<p:ajax update="foodInputId" listener="#{logic.inputNewFood}" />
+						</p:selectBooleanCheckbox>
+
+					</h:panelGroup>
 
 					<!--  Input data here -->
 					<p:panelGrid columns="3" layout="grid"
-						styleClass="showcase-text-align-center">
+						styleClass="showcase-text-align-center" id="foodInputId">
 
 						<h:panelGroup>
 							<p:outputLabel value="Food name(*)" />
 							<br />
-							<p:inputText value="#{data.newItem.name}" />
+							<p:inputText disabled="#{not data.isItemDisabled}"
+								value="#{data.newItem.name}" />
 						</h:panelGroup>
 						<h:panelGroup>
 							<p:outputLabel value="Price" />
 							<br />
-							<p:inputText value="#{data.newItem.price}" />
+							<p:inputText disabled="#{not data.isItemDisabled}"
+								value="#{data.newItem.price}" />
 						</h:panelGroup>
-						<p:commandButton actionListener="#{logic.save}"
+						<p:commandButton disabled="#{not data.isItemDisabled}"
+							actionListener="#{logic.save}"
+							update=":form:ticketShowTable, :form:newRestaurantId, :form:foodInputId"
 							value="Add" />
 					</p:panelGrid>
 
-					<p:dataTable border="1">
-						<p:column headerText="Food">
-							<h:outputText value="123" />
+					<p:dataTable border="1" id="ticketShowTable" var="foodItem"
+						value="#{data.items}">
+						<p:column headerText="Food" id="foodNameId">
+							<h:outputText value="#{foodItem.name}"></h:outputText>
 						</p:column>
 
-						<p:column headerText="Price">
-							<h:outputText value="312" />
+						<p:column headerText="Price" id="foodPriceId">
+							<h:outputText value="#{foodItem.price}"></h:outputText>
 						</p:column>
 
-						<p:column headerText="Action">
-							<h:outputText value="321" />
+						<p:column headerText="Action" style="width:5em;">
+							<p:commandLink actionListener="#{logic.delete(foodItem)}"
+								style="display:inline; text-align:center;"
+								update=":form:ticketShowTable">
+								<span class="ui-icon ui-icon-trash" />
+							</p:commandLink>
 						</p:column>
 					</p:dataTable>
 				</p:dialog>

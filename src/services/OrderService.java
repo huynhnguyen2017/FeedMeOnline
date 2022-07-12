@@ -1,5 +1,6 @@
 package services;
 
+import java.util.Date;
 import java.util.List;
 
 import com.sun.mail.imap.protocol.Item;
@@ -15,15 +16,22 @@ public class OrderService {
 		return Ivy.persistence().get("FeedMeOnlineUnit");
 	}
 	
-	public static void save(ItemData item, Restaurant restaurant) {
+	public static Boolean save(ItemData item, Restaurant restaurant) {
+		
+		Boolean isPersisted = Boolean.FALSE;
+		
+		restaurant.setCreatedAt(new Date());
 
 		Restaurant restaurantFromDB = getEntityManagement().persist(restaurant);
 
 		if (restaurantFromDB != null) {
 			item.setRestaurantId(restaurantFromDB.getId());
 			getEntityManagement().persist(item);
-			Ivy.log().info("Okay here");
-		}		
+			
+			isPersisted = Boolean.TRUE;
+		}
+		
+		return isPersisted;
 		
 	}
 	
@@ -31,4 +39,20 @@ public class OrderService {
 	public static List<Restaurant> queryAllRestaurants() {
 		return getEntityManagement().findAll(Restaurant.class);
 	}
+	
+	
+	public static List<ItemData> findAllItems() {
+		return getEntityManagement().findAll(ItemData.class);
+	}
+	
+	public static ItemData deleteItem(ItemData item) {
+		return getEntityManagement().remove(item);
+	}
+	
+	public static Restaurant findRestaurantById(Integer restaurantId) {
+		return getEntityManagement().find(Restaurant.class, restaurantId);
+	}
+	
+	
+	
 }

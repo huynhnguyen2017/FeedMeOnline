@@ -12,3 +12,17 @@ newItem feed.me.on.lin.ItemData #field
 newItem PERSISTENT #fieldModifier
 newRestaurant feed.me.on.lin.Restaurant #field
 newRestaurant PERSISTENT #fieldModifier
+restaurantId Integer #field
+restaurantId PERSISTENT #fieldModifier
+isTicketSaved Boolean #field
+isTicketSaved PERSISTENT #fieldModifier
+itemDeleted feed.me.on.lin.ItemData #field
+itemDeleted PERSISTENT #fieldModifier
+isRestaurantDisabled String #field
+isRestaurantDisabled PERSISTENT #fieldModifier
+isItemDisabled Boolean #field
+isItemDisabled PERSISTENT #fieldModifier
+orderingRestaurant feed.me.on.lin.Restaurant #field
+orderingRestaurant PERSISTENT #fieldModifier
+orderingItems java.util.List<feed.me.on.lin.ItemData> #field
+orderingItems PERSISTENT #fieldModifier

@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Restaurant extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 5334731897569043869L;
+  private static final long serialVersionUID = 6986861889709855764L;
 
   /**
    * Identifier
@@ -114,6 +114,26 @@ public class Restaurant extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setPhone(java.lang.String _phone)
   {
     phone = _phone;
+  }
+
+  private java.util.Date createdAt;
+
+  /**
+   * Gets the field createdAt.
+   * @return the value of the field createdAt; may be null.
+   */
+  public java.util.Date getCreatedAt()
+  {
+    return createdAt;
+  }
+
+  /**
+   * Sets the field createdAt.
+   * @param _createdAt the new value of the field createdAt.
+   */
+  public void setCreatedAt(java.util.Date _createdAt)
+  {
+    createdAt = _createdAt;
   }
 
 }

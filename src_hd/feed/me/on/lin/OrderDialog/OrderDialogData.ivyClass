@@ -26,3 +26,9 @@ orderingRestaurant feed.me.on.lin.Restaurant #field
 orderingRestaurant PERSISTENT #fieldModifier
 orderingItems java.util.List<feed.me.on.lin.Menu> #field
 orderingItems PERSISTENT #fieldModifier
+myMenuFood feed.me.on.lin.Menu #field
+myMenuFood PERSISTENT #fieldModifier
+myMenuFoodId Integer #field
+myMenuFoodId PERSISTENT #fieldModifier
+myOrderNotice String #field
+myOrderNotice PERSISTENT #fieldModifier

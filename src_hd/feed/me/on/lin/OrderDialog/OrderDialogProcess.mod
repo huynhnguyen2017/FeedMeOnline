@@ -65,6 +65,11 @@ Os0 @PushWFArc f48 '' #zField
 Os0 @GridStep f44 '' #zField
 Os0 @PushWFArc f49 '' #zField
 Os0 @PushWFArc f45 '' #zField
+Os0 @RichDialogMethodStart f50 '' #zField
+Os0 @RichDialogProcessEnd f51 '' #zField
+Os0 @GridStep f52 '' #zField
+Os0 @PushWFArc f54 '' #zField
+Os0 @PushWFArc f55 '' #zField
 >Proto Os0 Os0 OrderDialogProcess #zField
 Os0 f0 guid 181D7FB32D05813C #txt
 Os0 f0 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
@@ -513,11 +518,8 @@ Os0 f44 actionTable 'out=in;
 Os0 f44 actionCode 'import services.UtilService;
 import services.OrderService;
 in.restaurants = OrderService.queryAllRestaurants();
-ivy.log.info("restaurant here {0}", in.restaurants);
 in.items = OrderService.findAllItems();
-ivy.log.info("items here {0}", in.items);
-in.isRestaurantDisabled = "true";
-in.isItemDisabled = true;
+
 in.orderingRestaurant = (!in.restaurants.isEmpty() ? in.restaurants.get(0) : null);
 in.orderingItems = UtilService.findItemsByRestaurantIds(in.items, in.orderingRestaurant.id);' #txt
 Os0 f44 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
@@ -537,6 +539,51 @@ Os0 f49 736 384 792 336 #arcP
 Os0 f49 0 0.5000000000000001 0 0 #arcLabel
 Os0 f45 expr out #txt
 Os0 f45 848 358 805 420 #arcP
+Os0 f50 guid 181F5DD225E298C5 #txt
+Os0 f50 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f50 method chooseMyFood() #txt
+Os0 f50 disableUIEvents false #txt
+Os0 f50 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Os0 f50 outParameterDecl '<> result;
+' #txt
+Os0 f50 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>choooseMyFood()</name>
+        <nameStyle>15,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f50 51 1171 26 26 -49 15 #rect
+Os0 f50 @|RichDialogMethodStartIcon #fIcon
+Os0 f51 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f51 531 1171 26 26 0 12 #rect
+Os0 f51 @|RichDialogProcessEndIcon #fIcon
+Os0 f52 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
+' #txt
+Os0 f52 actionTable 'out=in;
+' #txt
+Os0 f52 actionCode 'import services.UtilService;
+in.myMenuFood = UtilService.findItemById(in.orderingItems, in.myMenuFoodId);' #txt
+Os0 f52 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f52 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Select Menu Food from id</name>
+        <nameStyle>24,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f52 248 1162 144 44 -69 -8 #rect
+Os0 f52 @|StepIcon #fIcon
+Os0 f54 expr out #txt
+Os0 f54 77 1184 248 1184 #arcP
+Os0 f55 expr out #txt
+Os0 f55 392 1184 531 1184 #arcP
 >Proto Os0 .type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -587,3 +634,7 @@ Os0 f15 mainOut f49 tail #connect
 Os0 f49 head f44 mainIn #connect
 Os0 f44 mainOut f45 tail #connect
 Os0 f45 head f17 mainIn #connect
+Os0 f50 mainOut f54 tail #connect
+Os0 f54 head f52 mainIn #connect
+Os0 f52 mainOut f55 tail #connect
+Os0 f55 head f51 mainIn #connect

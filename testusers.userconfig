@@ -6,4 +6,10 @@
         <fullName>Orell Appenzeller</fullName>
         <role>Ordering Manager</role>
     </user>
+    <user>
+        <username>huynh</username>
+        <password>123</password>
+        <fullName>Huynh Nguyen</fullName>
+        <role>Guest</role>
+    </user>
 </userConfig>

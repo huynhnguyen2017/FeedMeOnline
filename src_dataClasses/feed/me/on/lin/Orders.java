@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -1545822955015750618L;
+  private static final long serialVersionUID = -5765627361062491632L;
 
   /**
    * Identifier
@@ -76,27 +76,6 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     status = _status;
   }
 
-  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
-  private feed.me.on.lin.Bill bill;
-
-  /**
-   * Gets the field bill.
-   * @return the value of the field bill; may be null.
-   */
-  public feed.me.on.lin.Bill getBill()
-  {
-    return bill;
-  }
-
-  /**
-   * Sets the field bill.
-   * @param _bill the new value of the field bill.
-   */
-  public void setBill(feed.me.on.lin.Bill _bill)
-  {
-    bill = _bill;
-  }
-
   @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="orders", orphanRemoval=false)
   private java.util.List<feed.me.on.lin.Menu> menus;
 
@@ -116,6 +95,27 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setMenus(java.util.List<feed.me.on.lin.Menu> _menus)
   {
     menus = _menus;
+  }
+
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Bill bill;
+
+  /**
+   * Gets the field bill.
+   * @return the value of the field bill; may be null.
+   */
+  public feed.me.on.lin.Bill getBill()
+  {
+    return bill;
+  }
+
+  /**
+   * Sets the field bill.
+   * @param _bill the new value of the field bill.
+   */
+  public void setBill(feed.me.on.lin.Bill _bill)
+  {
+    bill = _bill;
   }
 
 }

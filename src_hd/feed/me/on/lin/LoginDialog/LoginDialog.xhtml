@@ -23,7 +23,7 @@
 					<p:outputLabel value="Username" />
 					<p:inputText value="#{data.account.username}" />
 					<p:outputLabel value="Password" />
-					<p:inputText value="#{data.account.password}" />
+					<p:inputText type="password" value="#{data.account.password}" />
 
 					<br />
 					<p:commandButton actionListener="#{logic.login}" value="Login" update="form" style="margin-left: 100px" />

@@ -7,7 +7,7 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2111320730247189653L;
+  private static final long serialVersionUID = -7326284869475117846L;
 
   private feed.me.on.lin.Account account;
 
@@ -267,6 +267,66 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
   public void setOrderingItems(java.util.List<feed.me.on.lin.Menu> _orderingItems)
   {
     orderingItems = _orderingItems;
+  }
+
+  private feed.me.on.lin.Menu myMenuFood;
+
+  /**
+   * Gets the field myMenuFood.
+   * @return the value of the field myMenuFood; may be null.
+   */
+  public feed.me.on.lin.Menu getMyMenuFood()
+  {
+    return myMenuFood;
+  }
+
+  /**
+   * Sets the field myMenuFood.
+   * @param _myMenuFood the new value of the field myMenuFood.
+   */
+  public void setMyMenuFood(feed.me.on.lin.Menu _myMenuFood)
+  {
+    myMenuFood = _myMenuFood;
+  }
+
+  private java.lang.Integer myMenuFoodId;
+
+  /**
+   * Gets the field myMenuFoodId.
+   * @return the value of the field myMenuFoodId; may be null.
+   */
+  public java.lang.Integer getMyMenuFoodId()
+  {
+    return myMenuFoodId;
+  }
+
+  /**
+   * Sets the field myMenuFoodId.
+   * @param _myMenuFoodId the new value of the field myMenuFoodId.
+   */
+  public void setMyMenuFoodId(java.lang.Integer _myMenuFoodId)
+  {
+    myMenuFoodId = _myMenuFoodId;
+  }
+
+  private java.lang.String myOrderNotice;
+
+  /**
+   * Gets the field myOrderNotice.
+   * @return the value of the field myOrderNotice; may be null.
+   */
+  public java.lang.String getMyOrderNotice()
+  {
+    return myOrderNotice;
+  }
+
+  /**
+   * Sets the field myOrderNotice.
+   * @param _myOrderNotice the new value of the field myOrderNotice.
+   */
+  public void setMyOrderNotice(java.lang.String _myOrderNotice)
+  {
+    myOrderNotice = _myOrderNotice;
   }
 
 }

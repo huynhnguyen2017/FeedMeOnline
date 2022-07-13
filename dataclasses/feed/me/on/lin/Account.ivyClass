@@ -13,3 +13,8 @@ password String #field
 password PERSISTENT #fieldModifier
 fullName String #field
 fullName PERSISTENT #fieldModifier
+billedId java.util.List<feed.me.on.lin.Bill> #field
+billedId PERSISTENT #fieldModifier
+billedId ONE_TO_MANY #fieldAssociation
+billedId #fieldCascadeTypes
+billedId account #mappedByFieldName

@@ -41,6 +41,10 @@
         <name>deleteOrder</name>
         <description></description>
     </method>
+    <method>
+        <name>chooseMyFood</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 758692748680222152L;
+  private static final long serialVersionUID = 7224645101900921384L;
 
   /**
    * Identifier
@@ -56,27 +56,6 @@ public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     priceTotal = _priceTotal;
   }
 
-  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
-  private feed.me.on.lin.Account account;
-
-  /**
-   * Gets the field account.
-   * @return the value of the field account; may be null.
-   */
-  public feed.me.on.lin.Account getAccount()
-  {
-    return account;
-  }
-
-  /**
-   * Sets the field account.
-   * @param _account the new value of the field account.
-   */
-  public void setAccount(feed.me.on.lin.Account _account)
-  {
-    account = _account;
-  }
-
   @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="bill", orphanRemoval=false)
   private java.util.List<feed.me.on.lin.Orders> orders;
 
@@ -96,6 +75,27 @@ public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setOrders(java.util.List<feed.me.on.lin.Orders> _orders)
   {
     orders = _orders;
+  }
+
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Account account;
+
+  /**
+   * Gets the field account.
+   * @return the value of the field account; may be null.
+   */
+  public feed.me.on.lin.Account getAccount()
+  {
+    return account;
+  }
+
+  /**
+   * Sets the field account.
+   * @param _account the new value of the field account.
+   */
+  public void setAccount(feed.me.on.lin.Account _account)
+  {
+    account = _account;
   }
 
 }

@@ -11,12 +11,12 @@ createdDate java.util.Date #field
 createdDate PERSISTENT #fieldModifier
 status String #field
 status PERSISTENT #fieldModifier
-bill feed.me.on.lin.Bill #field
-bill PERSISTENT #fieldModifier
-bill MANY_TO_ONE #fieldAssociation
-bill #fieldCascadeTypes
 menus java.util.List<feed.me.on.lin.Menu> #field
 menus PERSISTENT #fieldModifier
 menus ONE_TO_MANY #fieldAssociation
 menus #fieldCascadeTypes
 menus orders #mappedByFieldName
+bill feed.me.on.lin.Bill #field
+bill PERSISTENT #fieldModifier
+bill MANY_TO_ONE #fieldAssociation
+bill #fieldCascadeTypes

@@ -1,0 +1,6 @@
+GuestOrderFoodListDialogData #class
+feed.me.on.lin.GuestOrderFoodListDialog #namespace
+userName String #field
+userName PERSISTENT #fieldModifier
+role String #field
+role PERSISTENT #fieldModifier

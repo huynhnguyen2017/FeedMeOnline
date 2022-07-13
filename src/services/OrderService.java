@@ -17,10 +17,13 @@ public class OrderService {
 	public static Boolean save(Menu item, Restaurant restaurant) {
 
 		Boolean isPersisted = Boolean.FALSE;
+		Restaurant restaurantFromDB = null;
 
-		restaurant.setCreatedAt(new Date());
-
-		Restaurant restaurantFromDB = getEntityManagement().persist(restaurant);
+		if (restaurant != null && restaurant.getId() != null) {
+			restaurant.setCreatedAt(new Date());
+			
+			restaurantFromDB = getEntityManagement().merge(restaurant);			
+		}
 
 		if (restaurantFromDB != null) {
 			item.setRestaurantId(restaurant);

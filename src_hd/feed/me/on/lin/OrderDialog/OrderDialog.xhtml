@@ -17,6 +17,7 @@
 				<p:layout style="min-width:400px;min-height:1200px;">
 					<p:layoutUnit position="north" resizable="true" size="100"
 						minSize="40" maxSize="200">
+
 						<h:outputText value="Feed Me Online" />
 
 						<div style="float: right;">
@@ -25,32 +26,38 @@
 							<br />
 							<h:outputText value="Role: #{data.role}" />
 						</div>
+
+
 					</p:layoutUnit>
 					<p:layoutUnit position="west" resizable="true" minSize="200">
-						<div
-							style="display: flex; flex-wrap: wrap; justify-content: center; align-self: center; align-content: center; border: 1px solid black; height: 50px;">
-							<p:commandButton style=""
-								oncomplete="PF('createOrderingTicket').show();" value="New"
-								update="form" />
-						</div>
+						<h:panelGroup id="westOrderList">
+							<div
+								style="display: flex; flex-wrap: wrap; justify-content: center; align-self: center; align-content: center; border: 1px solid black; height: 50px;">
+								<p:commandButton style=""
+									oncomplete="PF('createOrderingTicket').show();" value="New"
+									update="form" />
+							</div>
 
-						<ui:repeat value="#{data.restaurants}" var="newRestaurant">
-							<h:commandButton update="orderingDetailId, itemFormDataId"
-								style="position: relative; width: 99%; margin-top: 2px;"
-								value="#{newRestaurant.name}"
-								actionListener="#{logic.displayOrderingTicketDetail(newRestaurant)}" />
-						</ui:repeat>
-
+							<ui:repeat value="#{data.restaurants}" var="newRestaurant">
+								<h:commandButton update="orderingDetailId, itemFormDataId"
+									style="position: relative; width: 99%; margin-top: 2px;"
+									value="#{newRestaurant.name}"
+									actionListener="#{logic.displayOrderingTicketDetail(newRestaurant)}" />
+							</ui:repeat>
+						</h:panelGroup>
 					</p:layoutUnit>
 
-					<p:layoutUnit position="center" style="height: 100%">
+					<p:layoutUnit id="centerOrderingDetail" position="center"
+						style="height: 100%">
 						<div class="card">
 							<p:panel style="border: 1px solid black; height: 100px;">
 								<h3 style="float: left;">Ordering Detail</h3>
 								<h:panelGroup style="float: right">
 									<p:commandButton value="Purchase" />
-									<p:commandButton actionListener="#{logic.deleteOrder}" value="Delete" update="form"/>
-									<p:commandButton value="My Order" />
+									<p:commandButton actionListener="#{logic.deleteOrder}"
+										value="Delete" update="form" />
+									<p:commandButton oncomplete="PF('editOrderingDetail').show();"
+										value="My Order" />
 								</h:panelGroup>
 							</p:panel>
 							<p:panel>
@@ -70,8 +77,9 @@
 							</p:panel>
 
 							<p:panel>
-								<p:dataTable styleClass="menuDisplayClass" id="itemFormDataId" style="border-style: none;"
-									var="item" value="#{data.orderingItems}">
+								<p:dataTable styleClass="menuDisplayClass" id="itemFormDataId"
+									style="border-style: none;" var="item"
+									value="#{data.orderingItems}">
 									<p:column style="width: 10%; text-align: center;">
 										<h:outputText value="#{item.name}" />
 									</p:column>
@@ -143,7 +151,7 @@
 						</h:panelGroup>
 						<p:commandButton disabled="#{not data.isItemDisabled}"
 							actionListener="#{logic.save}"
-							update=":form:ticketShowTable, :form:newRestaurantId, :form:foodInputId"
+							update=":form:ticketShowTable, :form:newRestaurantId, :form:foodInputId, :form:westOrderList"
 							value="Add" />
 					</p:panelGrid>
 
@@ -165,6 +173,60 @@
 							</p:commandLink>
 						</p:column>
 					</p:dataTable>
+				</p:dialog>
+
+				<p:dialog header="I'm hungry..." widgetVar="editOrderingDetail"
+					modal="true" height="300">
+					<p:remoteCommand name="updateOrderingDetail" update="myOrderId" />
+					<div>
+						<h:panelGroup id="myOrderId">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12"
+										style="display: flex; justify-content: center;">
+										<h3>#{data.orderingRestaurant.name}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12"
+										style="display: flex; justify-content: center;">
+										<a>#{data.orderingRestaurant.website}</a>
+									</div>
+								</div>
+								<div class="row">
+									<p>
+										I want to order
+										<p:selectOneMenu id="chooseOrderingMenuOption"
+											value="#{data.myMenuFoodId}">
+											<f:selectItem itemValue="-100000" itemLabel="Choose one..." />
+											<f:selectItems value="#{data.orderingItems}"
+												var="orderingItem" itemLabel="#{orderingItem.name}"
+												itemValue="#{orderingItem.id}" />
+											<f:selectItem itemValue="-50000" itemLabel="SomethingElse" />
+											<p:ajax listener="#{logic.chooseMyFood}"
+												oncomplete="updateOrderingDetail()" />
+										</p:selectOneMenu>
+
+										It price <strong>#{data.myMenuFood.price} VND</strong> is and
+										my notice is
+										<h:inputText value="#{data.myOrderNotice}" />
+										. Thanks!
+									</p>
+								</div>
+							</div>
+
+							<br />
+							<br />
+							<div class="row">
+								<div class="col-sm-12"
+									style="display: flex; justify-content: center;">
+									<p:commandButton type="button"  styleClass="btn btn-primary"
+										value="Feed me plz!!!" />
+								</div>
+							</div>
+
+						</h:panelGroup>
+					</div>
 				</p:dialog>
 			</h:form>
 

@@ -24,4 +24,13 @@ public class UtilService {
 		.collect(Collectors.toList());
 		return filteredItems;
 	}
+	
+	public static Menu findItemById(List<Menu> items,
+			Integer itemId) {
+		if (!items.isEmpty() && itemId > 0) {
+			return items.stream()
+					.filter(item -> item.getId().equals(itemId)).findFirst().orElseGet(null);			
+		}
+		return null;
+	}
 }

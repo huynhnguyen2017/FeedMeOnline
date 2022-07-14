@@ -45,6 +45,10 @@
         <name>chooseMyFood</name>
         <description></description>
     </method>
+    <method>
+        <name>logout</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

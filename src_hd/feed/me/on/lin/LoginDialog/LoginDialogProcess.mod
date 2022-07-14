@@ -33,12 +33,16 @@ Ls0 f0 disableUIEvents true #txt
 Ls0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Ls0 f0 outParameterDecl '<> result;
+Ls0 f0 outParameterDecl '<java.lang.Boolean isAuthenticated> result;
+' #txt
+Ls0 f0 outParameterMapAction 'result.isAuthenticated=in.isAuthenticated;
 ' #txt
 Ls0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -97,9 +101,10 @@ Ls0 f7 @|RichDialogEndIcon #fIcon
 Ls0 f9 actionDecl 'feed.me.on.lin.LoginDialog.LoginDialogData out;
 ' #txt
 Ls0 f9 actionTable 'out=in;
+out.isAuthenticated=in.isAuthenticated;
 ' #txt
-Ls0 f9 actionCode 'boolean isAuthenticated = ivy.session.loginSessionUser(in.account.username,in.account.password);
-ivy.log.info("Authenticated {0}",isAuthenticated );' #txt
+Ls0 f9 actionCode 'in.isAuthenticated = ivy.session.loginSessionUser(in.account.username,in.account.password);
+ivy.log.info("Authenticated {0}",in.isAuthenticated );' #txt
 Ls0 f9 type feed.me.on.lin.LoginDialog.LoginDialogData #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

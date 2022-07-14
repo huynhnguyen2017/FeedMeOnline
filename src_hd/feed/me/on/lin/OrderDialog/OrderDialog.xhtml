@@ -22,7 +22,7 @@
 
 						<div style="float: right;">
 							<h:outputText value="Welcome #{data.account.fullName}" />
-							<h:link value="Logout" outcome=""></h:link>
+							<p:commandButton actionListener="#{logic.logout}" style="margin-left: 10px;" value="Logout" />
 							<br />
 							<h:outputText value="Role: #{data.role}" />
 						</div>

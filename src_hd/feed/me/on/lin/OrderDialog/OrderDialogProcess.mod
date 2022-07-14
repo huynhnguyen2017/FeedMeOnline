@@ -70,6 +70,11 @@ Os0 @RichDialogProcessEnd f51 '' #zField
 Os0 @GridStep f52 '' #zField
 Os0 @PushWFArc f54 '' #zField
 Os0 @PushWFArc f55 '' #zField
+Os0 @GridStep f56 '' #zField
+Os0 @RichDialogEnd f57 '' #zField
+Os0 @RichDialogMethodStart f58 '' #zField
+Os0 @PushWFArc f59 '' #zField
+Os0 @PushWFArc f60 '' #zField
 >Proto Os0 Os0 OrderDialogProcess #zField
 Os0 f0 guid 181D7FB32D05813C #txt
 Os0 f0 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
@@ -584,6 +589,51 @@ Os0 f54 expr out #txt
 Os0 f54 77 1184 248 1184 #arcP
 Os0 f55 expr out #txt
 Os0 f55 392 1184 531 1184 #arcP
+Os0 f56 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
+' #txt
+Os0 f56 actionTable 'out=in;
+' #txt
+Os0 f56 actionCode ivy.session.logoutSessionUser(); #txt
+Os0 f56 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f56 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Logout</name>
+        <nameStyle>6,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f56 248 1322 112 44 -19 -8 #rect
+Os0 f56 @|StepIcon #fIcon
+Os0 f57 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f57 guid 181FBD989BA71335 #txt
+Os0 f57 547 1331 26 26 0 12 #rect
+Os0 f57 @|RichDialogEndIcon #fIcon
+Os0 f58 guid 181FBDAEE1FABCE0 #txt
+Os0 f58 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f58 method logout() #txt
+Os0 f58 disableUIEvents false #txt
+Os0 f58 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Os0 f58 outParameterDecl '<> result;
+' #txt
+Os0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout()</name>
+        <nameStyle>8,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f58 59 1331 26 26 -21 15 #rect
+Os0 f58 @|RichDialogMethodStartIcon #fIcon
+Os0 f59 expr out #txt
+Os0 f59 360 1344 547 1344 #arcP
+Os0 f60 expr out #txt
+Os0 f60 85 1344 248 1344 #arcP
 >Proto Os0 .type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -638,3 +688,7 @@ Os0 f50 mainOut f54 tail #connect
 Os0 f54 head f52 mainIn #connect
 Os0 f52 mainOut f55 tail #connect
 Os0 f55 head f51 mainIn #connect
+Os0 f58 mainOut f60 tail #connect
+Os0 f60 head f56 mainIn #connect
+Os0 f56 mainOut f59 tail #connect
+Os0 f59 head f57 mainIn #connect

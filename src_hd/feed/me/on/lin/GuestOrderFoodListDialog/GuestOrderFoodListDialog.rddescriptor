@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
+    <method>
+        <name>editOrderingFoodByGuest</name>
+        <description></description>
+        <inputParameter>
+            <name>orderingRestaurant</name>
+            <description></description>
+            <parameterType>feed.me.on.lin.Restaurant</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>chooseMyFoodByGuest</name>
+        <description></description>
+        <inputParameter>
+            <name>foodList</name>
+            <description></description>
+            <parameterType>java.util.List&lt;feed.me.on.lin.Menu&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>selectedRestaurant</name>
+            <description></description>
+            <parameterType>java.lang.Integer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>logout</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

@@ -24,11 +24,16 @@ Ft0 @RichDialog f11 '' #zField
 Ft0 @EndTask f13 '' #zField
 Ft0 @PushWFArc f14 '' #zField
 Ft0 @Alternative f1 '' #zField
-Ft0 @PushWFArc f2 '' #zField
 Ft0 @PushWFArc f12 '' #zField
 Ft0 @StartRequest f10 '' #zField
 Ft0 @PushWFArc f15 '' #zField
 Ft0 @PushWFArc f16 '' #zField
+Ft0 @Alternative f17 '' #zField
+Ft0 @PushWFArc f2 '' #zField
+Ft0 @GridStep f20 '' #zField
+Ft0 @PushWFArc f21 '' #zField
+Ft0 @PushWFArc f18 '' #zField
+Ft0 @PushWFArc f19 '' #zField
 >Proto Ft0 Ft0 FeedMeOnlineManagement #zField
 Ft0 f0 outLink accountHolderManagement.ivp #txt
 Ft0 f0 type feed.me.on.lin.FeedMeOnlineManagementData #txt
@@ -67,6 +72,7 @@ Ft0 f3 requestActionDecl '<> param;' #txt
 Ft0 f3 responseActionDecl 'feed.me.on.lin.FeedMeOnlineManagementData out;
 ' #txt
 Ft0 f3 responseMappingAction 'out=in;
+out.isAuthenticated=result.isAuthenticated;
 ' #txt
 Ft0 f3 isAsynch false #txt
 Ft0 f3 isInnerRd false #txt
@@ -165,13 +171,13 @@ Ft0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f11 672 330 112 44 -46 -8 #rect
+Ft0 f11 768 274 112 44 -46 -8 #rect
 Ft0 f11 @|RichDialogIcon #fIcon
 Ft0 f13 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f13 953 337 30 30 0 15 #rect
 Ft0 f13 @|EndIcon #fIcon
 Ft0 f14 expr out #txt
-Ft0 f14 784 352 953 352 #arcP
+Ft0 f14 880 318 954 346 #arcP
 Ft0 f1 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -182,12 +188,10 @@ Ft0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f1 400 144 32 32 -29 18 #rect
+Ft0 f1 648 192 32 32 -29 18 #rect
 Ft0 f1 @|AlternativeIcon #fIcon
-Ft0 f2 expr out #txt
-Ft0 f2 352 110 408 152 #arcP
 Ft0 f12 expr out #txt
-Ft0 f12 526 344 672 352 #arcP
+Ft0 f12 526 341 768 296 #arcP
 Ft0 f10 outLink startGuestOrder.ivp #txt
 Ft0 f10 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f10 inParamDecl '<> param;' #txt
@@ -218,10 +222,68 @@ Ft0 f10 497 329 30 30 -53 17 #rect
 Ft0 f10 @|StartRequestIcon #fIcon
 Ft0 f15 expr in #txt
 Ft0 f15 outCond services.AuthenticationService.getUserRole().contains("Guest") #txt
-Ft0 f15 426 166 728 330 #arcP
+Ft0 f15 674 214 784 274 #arcP
 Ft0 f16 expr in #txt
 Ft0 f16 outCond 'services.AuthenticationService.getUserRole().contains("Ordering Manager")' #txt
-Ft0 f16 431 159 728 136 #arcP
+Ft0 f16 674 202 784 158 #arcP
+Ft0 f17 type feed.me.on.lin.FeedMeOnlineManagementData #txt
+Ft0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Check it is authenticated</name>
+        <nameStyle>25,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ft0 f17 496 192 32 32 -67 18 #rect
+Ft0 f17 @|AlternativeIcon #fIcon
+Ft0 f2 expr in #txt
+Ft0 f2 outCond in.isAuthenticated #txt
+Ft0 f2 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>yes</name>
+        <nameStyle>3,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ft0 f2 528 208 648 208 #arcP
+Ft0 f20 actionDecl 'feed.me.on.lin.FeedMeOnlineManagementData out;
+' #txt
+Ft0 f20 actionTable 'out=in;
+' #txt
+Ft0 f20 actionCode 'ivy.log.info("any output here {0}", in.isAuthenticated);' #txt
+Ft0 f20 type feed.me.on.lin.FeedMeOnlineManagementData #txt
+Ft0 f20 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Print result</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ft0 f20 456 66 112 44 -29 -8 #rect
+Ft0 f20 @|StepIcon #fIcon
+Ft0 f21 expr out #txt
+Ft0 f21 408 88 456 88 #arcP
+Ft0 f18 expr out #txt
+Ft0 f18 512 110 512 192 #arcP
+Ft0 f19 expr in #txt
+Ft0 f19 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>No</name>
+        <nameStyle>2,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ft0 f19 496 208 352 110 #arcP
+Ft0 f19 1 352 208 #addKink
+Ft0 f19 1 0.041615451733962514 0 0 #arcLabel
 >Proto Ft0 .type feed.me.on.lin.FeedMeOnlineManagementData #txt
 >Proto Ft0 .processKind NORMAL #txt
 >Proto Ft0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -258,9 +320,15 @@ Ft0 f10 mainOut f12 tail #connect
 Ft0 f12 head f11 mainIn #connect
 Ft0 f11 mainOut f14 tail #connect
 Ft0 f14 head f13 mainIn #connect
-Ft0 f3 mainOut f2 tail #connect
-Ft0 f2 head f1 in #connect
 Ft0 f1 out f15 tail #connect
 Ft0 f15 head f11 mainIn #connect
 Ft0 f1 out f16 tail #connect
 Ft0 f16 head f8 mainIn #connect
+Ft0 f17 out f2 tail #connect
+Ft0 f2 head f1 in #connect
+Ft0 f17 out f19 tail #connect
+Ft0 f19 head f3 mainIn #connect
+Ft0 f3 mainOut f21 tail #connect
+Ft0 f21 head f20 mainIn #connect
+Ft0 f20 mainOut f18 tail #connect
+Ft0 f18 head f17 in #connect

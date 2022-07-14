@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 7224645101900921384L;
+  private static final long serialVersionUID = -6325767764809977258L;
 
   /**
    * Identifier
@@ -56,25 +56,25 @@ public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     priceTotal = _priceTotal;
   }
 
-  @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="bill", orphanRemoval=false)
-  private java.util.List<feed.me.on.lin.Orders> orders;
+  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  private feed.me.on.lin.Orders billOrders;
 
   /**
-   * Gets the field orders.
-   * @return the value of the field orders; may be null.
+   * Gets the field billOrders.
+   * @return the value of the field billOrders; may be null.
    */
-  public java.util.List<feed.me.on.lin.Orders> getOrders()
+  public feed.me.on.lin.Orders getBillOrders()
   {
-    return orders;
+    return billOrders;
   }
 
   /**
-   * Sets the field orders.
-   * @param _orders the new value of the field orders.
+   * Sets the field billOrders.
+   * @param _billOrders the new value of the field billOrders.
    */
-  public void setOrders(java.util.List<feed.me.on.lin.Orders> _orders)
+  public void setBillOrders(feed.me.on.lin.Orders _billOrders)
   {
-    orders = _orders;
+    billOrders = _billOrders;
   }
 
   @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
@@ -96,6 +96,26 @@ public class Bill extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setAccount(feed.me.on.lin.Account _account)
   {
     account = _account;
+  }
+
+  private java.lang.Boolean isOrdered;
+
+  /**
+   * Gets the field isOrdered.
+   * @return the value of the field isOrdered; may be null.
+   */
+  public java.lang.Boolean getIsOrdered()
+  {
+    return isOrdered;
+  }
+
+  /**
+   * Sets the field isOrdered.
+   * @param _isOrdered the new value of the field isOrdered.
+   */
+  public void setIsOrdered(java.lang.Boolean _isOrdered)
+  {
+    isOrdered = _isOrdered;
   }
 
 }

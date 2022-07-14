@@ -10,6 +10,7 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">GuestOrderFoodListDialog</ui:define>
 		<ui:define name="content">
+			<h:outputStylesheet name="/resources/css/guest-order-style.css" />
 			<h:form id="form">
 				<p:layout style="min-width:400px;min-height:1200px;">
 					<p:layoutUnit position="north" resizable="true" size="100"
@@ -19,20 +20,95 @@
 
 						<div style="float: right;">
 							<h:outputText value="Welcome #{data.userName}" />
-							<h:link style="margin-left: 10px;" value="Logout" outcome=""></h:link>
+							<p:commandButton actionListener="#{logic.logout}" style="margin-left: 10px;" value="Logout" />
 							<br />
 							<h:outputText value="Role: #{data.role}" />
 						</div>
 
 					</p:layoutUnit>
 
-					<p:layoutUnit id="centerOrderingDetail" position="center"
-						style="height: 100%">
-						<h:outputText value="Okay here" />
+					<p:layoutUnit position="center" style="height: 100%">
+						<div class="container-fluid">
+							<div class="row">
+								<ui:repeat var="restaurant" value="#{data.restaurants}">
+									<div class="col-sm-3">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<h3 class="guest-order-list-center">#{restaurant.name}</h3>
+												<h5 class="guest-order-list-center">#{restaurant.createdAt}</h5>
+												<h6 class="guest-order-list-center">20:50</h6>
+												<span class="guest-order-list-center"> <h:outputText>Yogourt <p:commandLink>
+															<span class="ui-icon ui-icon-trash" />
+														</p:commandLink>
+													</h:outputText>
+												</span> <br /> <span class="guest-order-list-center"><p:commandButton
+														oncomplete="PF('editGuestOrderingDetail').show();"
+														actionListener="#{logic.editOrderingFoodByGuest(restaurant)}"
+														update="form" value="Order" /></span>
+											</div>
+										</div>
+									</div>
+								</ui:repeat>
+							</div>
+						</div>
 
 					</p:layoutUnit>
 				</p:layout>
-				
+
+				<!-- Popup guest order foods -->
+				<p:dialog header="I'm hungry..." widgetVar="editGuestOrderingDetail"
+					modal="true" height="300">
+					<p:remoteCommand name="updateOrderingListByGuest" update="myOrderIdByGuest" />
+					<div>
+						<h:panelGroup id="myOrderIdByGuest">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-12"
+										style="display: flex; justify-content: center;">
+										<h3>#{data.orderingRestaurantByGuest.name}</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12"
+										style="display: flex; justify-content: center;">
+										<a>#{data.orderingRestaurantByGuest.website}</a>
+									</div>
+								</div>
+								<div class="row">
+									<span>
+										I want to order
+										<p:selectOneMenu id="chooseOrderingMenuOptionByGuest"
+											value="#{data.myMenuFoodIdByGuest}">
+											<f:selectItem itemValue="-10000000" itemLabel="Choose one..." />
+											<f:selectItems value="#{data.orderingFoodsByGuest}"
+												var="orderingItem" itemLabel="#{orderingItem.name}"
+												itemValue="#{orderingItem.id}" />
+											<f:selectItem itemDisabled="#{data.orderingRestaurantByGuest.allowNewInput}" itemValue="-9999999" itemLabel="Something Else" />
+											<p:ajax oncomplete="updateOrderingListByGuest()" listener="#{logic.chooseMyFoodByGuest(data.orderingFoodsByGuest, data.myMenuFoodIdByGuest)}" />
+										</p:selectOneMenu>
+										<h:outputText rendered="#{not data.allowInputSomethingElse}">It price is <strong>#{data.selectedFoodOfRestaurant.price} VND</strong></h:outputText> 
+										<h:outputText rendered="#{data.allowInputSomethingElse}">its name is <p:inputText /> with price is <p:inputText />
+										</h:outputText>
+										and my notice is
+										<h:inputText value="#{data.myOrderNoticeByGuest}" />
+										. Thanks!
+									</span>
+								</div>
+							</div>
+
+							<br />
+							<br />
+							<div class="row">
+								<div class="col-sm-12"
+									style="display: flex; justify-content: center;">
+									<p:commandButton  type="button" styleClass="btn btn-primary"
+										value="Feed me plz!!!" />
+								</div>
+							</div>
+
+						</h:panelGroup>
+					</div>
+				</p:dialog>
 			</h:form>
 		</ui:define>
 	</ui:composition>

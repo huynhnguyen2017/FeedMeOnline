@@ -36,6 +36,7 @@ public class OrderService {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Restaurant> queryAllRestaurants() {
 		List<Restaurant> allRestaurants = (List<Restaurant>) getEntityManagement()
 				.createQuery(
@@ -48,10 +49,11 @@ public class OrderService {
 		return getEntityManagement().findAll(Menu.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	public static List<Menu> findItemsByRestaurantId(Integer restaurantId) {
 		return (List<Menu>) getEntityManagement()
 				.createQuery(
-						"select m from Menu m join Restaurant r on r.id = m.restaurantId where r.isValid is null")
+						"select m from Menu m join m.restaurantId r where r.isValid is null")
 				.getResultList();
 	}
 

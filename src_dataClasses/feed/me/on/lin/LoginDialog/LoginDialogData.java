@@ -7,7 +7,7 @@ package feed.me.on.lin.LoginDialog;
 public class LoginDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -7382636633644627411L;
+  private static final long serialVersionUID = 6001161949803031362L;
 
   private feed.me.on.lin.Account account;
 
@@ -27,6 +27,26 @@ public class LoginDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
   public void setAccount(feed.me.on.lin.Account _account)
   {
     account = _account;
+  }
+
+  private java.lang.Boolean isAuthenticated;
+
+  /**
+   * Gets the field isAuthenticated.
+   * @return the value of the field isAuthenticated; may be null.
+   */
+  public java.lang.Boolean getIsAuthenticated()
+  {
+    return isAuthenticated;
+  }
+
+  /**
+   * Sets the field isAuthenticated.
+   * @param _isAuthenticated the new value of the field isAuthenticated.
+   */
+  public void setIsAuthenticated(java.lang.Boolean _isAuthenticated)
+  {
+    isAuthenticated = _isAuthenticated;
   }
 
 }

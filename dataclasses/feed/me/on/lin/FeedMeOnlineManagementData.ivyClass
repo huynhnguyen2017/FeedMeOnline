@@ -1,2 +1,4 @@
 FeedMeOnlineManagementData #class
 feed.me.on.lin #namespace
+isAuthenticated Boolean #field
+isAuthenticated PERSISTENT #fieldModifier

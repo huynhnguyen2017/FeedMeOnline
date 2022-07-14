@@ -9,12 +9,13 @@ id ID #fieldModifier
 id GENERATED #fieldModifier
 priceTotal Double #field
 priceTotal PERSISTENT #fieldModifier
-orders java.util.List<feed.me.on.lin.Orders> #field
-orders PERSISTENT #fieldModifier
-orders ONE_TO_MANY #fieldAssociation
-orders #fieldCascadeTypes
-orders bill #mappedByFieldName
+billOrders feed.me.on.lin.Orders #field
+billOrders PERSISTENT #fieldModifier
+billOrders MANY_TO_ONE #fieldAssociation
+billOrders #fieldCascadeTypes
 account feed.me.on.lin.Account #field
 account PERSISTENT #fieldModifier
 account MANY_TO_ONE #fieldAssociation
 account #fieldCascadeTypes
+isOrdered Boolean #field
+isOrdered PERSISTENT #fieldModifier

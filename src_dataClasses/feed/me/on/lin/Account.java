@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Account extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 1125714868057778465L;
+  private static final long serialVersionUID = 1125714890988923172L;
 
   /**
    * Identifier
@@ -97,24 +97,24 @@ public class Account extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   }
 
   @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="account", orphanRemoval=false)
-  private java.util.List<feed.me.on.lin.Bill> billedId;
+  private java.util.List<feed.me.on.lin.Bill> bills;
 
   /**
-   * Gets the field billedId.
-   * @return the value of the field billedId; may be null.
+   * Gets the field bills.
+   * @return the value of the field bills; may be null.
    */
-  public java.util.List<feed.me.on.lin.Bill> getBilledId()
+  public java.util.List<feed.me.on.lin.Bill> getBills()
   {
-    return billedId;
+    return bills;
   }
 
   /**
-   * Sets the field billedId.
-   * @param _billedId the new value of the field billedId.
+   * Sets the field bills.
+   * @param _bills the new value of the field bills.
    */
-  public void setBilledId(java.util.List<feed.me.on.lin.Bill> _billedId)
+  public void setBills(java.util.List<feed.me.on.lin.Bill> _bills)
   {
-    billedId = _billedId;
+    bills = _bills;
   }
 
 }

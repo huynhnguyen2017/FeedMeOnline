@@ -8,6 +8,12 @@
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
+        <outputParameter>
+            <name>isAuthenticated</name>
+            <description></description>
+            <parameterType>Boolean</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>

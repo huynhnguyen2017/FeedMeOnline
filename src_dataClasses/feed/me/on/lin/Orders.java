@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -5765627361062491632L;
+  private static final long serialVersionUID = -2589231254459586032L;
 
   /**
    * Identifier
@@ -97,14 +97,14 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     menus = _menus;
   }
 
-  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
-  private feed.me.on.lin.Bill bill;
+  @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="billOrders", orphanRemoval=false)
+  private java.util.List<feed.me.on.lin.Bill> bill;
 
   /**
    * Gets the field bill.
    * @return the value of the field bill; may be null.
    */
-  public feed.me.on.lin.Bill getBill()
+  public java.util.List<feed.me.on.lin.Bill> getBill()
   {
     return bill;
   }
@@ -113,7 +113,7 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
    * Sets the field bill.
    * @param _bill the new value of the field bill.
    */
-  public void setBill(feed.me.on.lin.Bill _bill)
+  public void setBill(java.util.List<feed.me.on.lin.Bill> _bill)
   {
     bill = _bill;
   }

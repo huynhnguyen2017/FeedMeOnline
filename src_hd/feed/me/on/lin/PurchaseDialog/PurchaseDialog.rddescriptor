@@ -2,25 +2,7 @@
 <richDialogDescriptor>
     <autoScreenshot>true</autoScreenshot>
     <method>
-        <name>save</name>
-        <description></description>
-    </method>
-    <method>
-        <name>delete</name>
-        <description></description>
-        <inputParameter>
-            <name>item</name>
-            <description></description>
-            <parameterType>feed.me.on.lin.Menu</parameterType>
-            <nullPermitted>false</nullPermitted>
-        </inputParameter>
-    </method>
-    <method>
         <name>checkNewRestaurant</name>
-        <description></description>
-    </method>
-    <method>
-        <name>inputNewFood</name>
         <description></description>
     </method>
     <method>
@@ -34,14 +16,6 @@
         </inputParameter>
     </method>
     <method>
-        <name>testMethod</name>
-        <description></description>
-    </method>
-    <method>
-        <name>deleteOrder</name>
-        <description></description>
-    </method>
-    <method>
         <name>chooseMyFood</name>
         <description></description>
     </method>
@@ -49,15 +23,39 @@
         <name>logout</name>
         <description></description>
     </method>
+    <method>
+        <name>approve</name>
+        <description></description>
+    </method>
+    <method>
+        <name>reject</name>
+        <description></description>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
         <outputParameter>
-            <name>isAllowTaskFromOrder</name>
+            <name>doneOrder</name>
             <description></description>
-            <parameterType>Boolean</parameterType>
+            <parameterType>feed.me.on.lin.Restaurant</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
+    </startMethod>
+    <startMethod>
+        <name>start</name>
+        <description></description>
+        <inputParameter>
+            <name>items</name>
+            <description></description>
+            <parameterType>java.util.List&lt;feed.me.on.lin.Menu&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <inputParameter>
+            <name>restaurants</name>
+            <description></description>
+            <parameterType>java.util.List&lt;feed.me.on.lin.Restaurant&gt;</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
         <outputParameter>
             <name>doneOrder</name>
             <description></description>
@@ -67,7 +65,7 @@
     </startMethod>
     <property>
         <name>guid</name>
-        <value>181D7FB32CBDE399</value>
+        <value>182000F569790D98</value>
         <readOnly>true</readOnly>
     </property>
     <property>

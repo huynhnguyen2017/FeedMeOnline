@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<h:outputStylesheet library="default" name="css/order-style.css" />
+
+
+		<ui:define name="title">OrderDialog</ui:define>
+		<ui:define name="content">
+			<h:form id="form">
+				<p:layout style="min-width:400px;min-height:1200px;">
+					<p:layoutUnit position="north" resizable="true" size="100"
+						minSize="40" maxSize="200">
+
+						<h:outputText value="Feed Me Online" />
+
+						<div style="float: right;">
+							<h:outputText value="Welcome #{data.account.fullName}" />
+							<p:commandButton actionListener="#{logic.logout}"
+								style="margin-left: 10px;" value="Logout" />
+							<br />
+							<h:outputText value="Role: #{data.role}" />
+						</div>
+
+
+					</p:layoutUnit>
+					<p:layoutUnit position="west" resizable="true" minSize="200">
+						<h:panelGroup id="westOrderList">
+							<div
+								style="display: flex; flex-wrap: wrap; justify-content: center; align-self: center; align-content: center; border: 1px solid black; height: 50px;">
+
+							</div>
+
+							<ui:repeat value="#{data.restaurants}" var="newRestaurant">
+								<h:commandButton update="orderingDetailId, itemFormDataId"
+									style="position: relative; width: 99%; margin-top: 2px;"
+									value="#{newRestaurant.name}"
+									actionListener="#{logic.displayOrderingTicketDetail(newRestaurant)}" />
+							</ui:repeat>
+						</h:panelGroup>
+					</p:layoutUnit>
+
+					<p:layoutUnit id="centerOrderingDetail" position="center"
+						style="height: 100%">
+						<div class="card">
+							<p:panel style="border: 1px solid black; height: 100px;">
+								<h3 style="float: left;">Ordering Detail</h3>
+								<h:panelGroup style="float: right">
+									<p:commandButton actionListener="#{logic.approve}"
+										value="Approve" update="form">
+										<p:confirm header="Confirmation"
+											message="Do you want to approve this request?" />
+									</p:commandButton>
+									<p:commandButton actionListener="#{logic.reject}"
+										value="Reject" update="form">
+										<p:confirm header="Confirmation"
+											message="Do you want to reject this request?" />
+									</p:commandButton>
+								</h:panelGroup>
+
+								<p:confirmDialog global="true" showEffect="fade"
+									hideEffect="fade" responsive="true" width="350">
+									<p:commandButton value="No" type="button"
+										styleClass="ui-confirmdialog-no ui-button-flat" />
+									<p:commandButton value="Yes" type="button"
+										styleClass="ui-confirmdialog-yes" />
+
+								</p:confirmDialog>
+							</p:panel>
+							<p:panel>
+								<h:panelGroup id="orderingDetailId">
+									<p:outputLabel value="Restaurant: " />
+									<h:outputText value="#{data.orderingRestaurant.name}" />
+									<p:outputLabel value="Website: " style="margin-left: 50px;" />
+									<h:outputText value="#{data.orderingRestaurant.website}" />
+									<p:outputLabel value="Phone: " style="margin-left: 50px;" />
+									<h:outputText value="#{data.orderingRestaurant.phone}" />
+									<p:outputLabel value="Created Date: "
+										style="margin-left: 50px;" />
+									<h:outputText value="" />
+									<p:outputLabel value="Total: " style="margin-left: 50px;" />
+									<h:outputText value="" />
+								</h:panelGroup>
+							</p:panel>
+
+							<p:panel>
+								<p:dataTable styleClass="menuDisplayClass" id="itemFormDataId"
+									style="border-style: none;" var="item"
+									value="#{data.orderingItems}">
+									<p:column style="width: 10%; text-align: center;">
+										<h:outputText value="#{item.name}" />
+									</p:column>
+									<p:column style="border: none;">
+										<p:outputLabel value="Price: " />
+										<h:outputText value="#{item.price}" />
+										<br />
+										<p:outputLabel value="Whose: " />
+										<h:outputText value="AnyOne" />
+									</p:column>
+								</p:dataTable>
+							</p:panel>
+
+						</div>
+
+					</p:layoutUnit>
+				</p:layout>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

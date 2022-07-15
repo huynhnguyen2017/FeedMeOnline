@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userConfig>
     <user>
-        <username>Orell</username>
-        <password>Orell</password>
+        <username>order</username>
+        <password>order</password>
         <fullName>Orell Appenzeller</fullName>
         <role>Ordering Manager</role>
     </user>
     <user>
-        <username>huynh</username>
-        <password>123</password>
+        <username>guest</username>
+        <password>guest</password>
         <fullName>Huynh Nguyen</fullName>
         <role>Guest</role>
+    </user>
+    <user>
+        <username>purchase</username>
+        <password>purchase</password>
+        <fullName>Purchase Management</fullName>
+        <role>Purchasing Manager</role>
     </user>
 </userConfig>

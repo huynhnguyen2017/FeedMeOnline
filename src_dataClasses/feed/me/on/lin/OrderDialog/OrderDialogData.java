@@ -7,7 +7,7 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 3186494997249632825L;
+  private static final long serialVersionUID = -1640921286806765687L;
 
   private feed.me.on.lin.Account account;
 
@@ -347,6 +347,46 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
   public void setAllowNewInput(java.lang.Boolean _allowNewInput)
   {
     allowNewInput = _allowNewInput;
+  }
+
+  private java.lang.Boolean isAllowTask;
+
+  /**
+   * Gets the field isAllowTask.
+   * @return the value of the field isAllowTask; may be null.
+   */
+  public java.lang.Boolean getIsAllowTask()
+  {
+    return isAllowTask;
+  }
+
+  /**
+   * Sets the field isAllowTask.
+   * @param _isAllowTask the new value of the field isAllowTask.
+   */
+  public void setIsAllowTask(java.lang.Boolean _isAllowTask)
+  {
+    isAllowTask = _isAllowTask;
+  }
+
+  private feed.me.on.lin.Restaurant doneOrder;
+
+  /**
+   * Gets the field doneOrder.
+   * @return the value of the field doneOrder; may be null.
+   */
+  public feed.me.on.lin.Restaurant getDoneOrder()
+  {
+    return doneOrder;
+  }
+
+  /**
+   * Sets the field doneOrder.
+   * @param _doneOrder the new value of the field doneOrder.
+   */
+  public void setDoneOrder(feed.me.on.lin.Restaurant _doneOrder)
+  {
+    doneOrder = _doneOrder;
   }
 
 }

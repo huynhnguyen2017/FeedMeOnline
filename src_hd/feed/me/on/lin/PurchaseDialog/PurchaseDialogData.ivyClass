@@ -1,0 +1,14 @@
+PurchaseDialogData #class
+feed.me.on.lin.PurchaseDialog #namespace
+account feed.me.on.lin.Account #field
+account PERSISTENT #fieldModifier
+role String #field
+role PERSISTENT #fieldModifier
+restaurants java.util.List<feed.me.on.lin.Restaurant> #field
+restaurants PERSISTENT #fieldModifier
+items java.util.List<feed.me.on.lin.Menu> #field
+items PERSISTENT #fieldModifier
+orderingRestaurant feed.me.on.lin.Restaurant #field
+orderingRestaurant PERSISTENT #fieldModifier
+orderingItems java.util.List<feed.me.on.lin.Menu> #field
+orderingItems PERSISTENT #fieldModifier

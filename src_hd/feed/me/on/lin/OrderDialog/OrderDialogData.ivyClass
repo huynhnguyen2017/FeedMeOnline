@@ -34,3 +34,7 @@ myOrderNotice String #field
 myOrderNotice PERSISTENT #fieldModifier
 allowNewInput Boolean #field
 allowNewInput PERSISTENT #fieldModifier
+isAllowTask Boolean #field
+isAllowTask PERSISTENT #fieldModifier
+doneOrder feed.me.on.lin.Restaurant #field
+doneOrder PERSISTENT #fieldModifier

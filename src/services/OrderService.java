@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ws.rs.GET;
+
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.process.data.persistence.IIvyEntityManager;
 import feed.me.on.lin.Menu;
@@ -27,18 +29,21 @@ public class OrderService {
 			restaurantFromDB = getEntityManagement().persist(restaurant);			
 		} else if (restaurant.getId() != null) {
 			restaurant.setAllowNewInput(allowInput);
+			restaurant.setStatus("DEFAULT");
 			restaurantFromDB = getEntityManagement().merge(restaurant);
 		}
 
 		if (restaurantFromDB != null) {
 			
 			item.setRestaurantId(restaurant);
+			
 			Menu newItem = getEntityManagement().persist(item);
 			
 			if (newItem != null) {
 				Orders newOrder = new Orders();
 				newOrder.setCreatedDate(new Date());
 				newOrder.setMenus(newItem);
+				newOrder.setStatus("NONE");
 				getEntityManagement().persist(newOrder);
 				isPersisted = Boolean.TRUE;
 			}		
@@ -67,10 +72,11 @@ public class OrderService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static List<Menu> findItemsByRestaurantId(Integer restaurantId) {
+	public static List<Menu> findItemsByRestaurantId(Restaurant restaurant) {
 		return (List<Menu>) getEntityManagement()
 				.createQuery(
-						"select m from Menu m join m.restaurantId r where r.isValid is null")
+						"select m from Menu m join m.restaurantId r where r.isValid is null and m.restaurantId = :rest")
+				.setParameter("rest", restaurant)
 				.getResultList();
 	}
 
@@ -88,8 +94,21 @@ public class OrderService {
 		return getEntityManagement().merge(restaurant);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<Menu> findAllItems() {
-		return getEntityManagement().findAll(Menu.class);
+		return (List<Menu>) getEntityManagement().createQuery(
+									"select m from Menu m join m.restaurantId r where r.isValid is null")
+							.getResultList();
+	}
+	
+	public static Restaurant setDoneForOrder(Restaurant restaurant, String status) {
+		if (status.equals("DONE")) {
+			restaurant.setStatus(status);
+			restaurant.setIsValid(new Date());			
+		} else {
+			restaurant.setStatus(status);
+		}
+		return getEntityManagement().merge(restaurant);
 	}
 
 }

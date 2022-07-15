@@ -104,7 +104,8 @@ Ls0 f9 actionTable 'out=in;
 out.isAuthenticated=in.isAuthenticated;
 ' #txt
 Ls0 f9 actionCode 'in.isAuthenticated = ivy.session.loginSessionUser(in.account.username,in.account.password);
-ivy.log.info("Authenticated {0}",in.isAuthenticated );' #txt
+ivy.log.info("Authenticated {0}",in.isAuthenticated );
+' #txt
 Ls0 f9 type feed.me.on.lin.LoginDialog.LoginDialogData #txt
 Ls0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

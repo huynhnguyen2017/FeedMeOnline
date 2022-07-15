@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Restaurant extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -35271493720492643L;
+  private static final long serialVersionUID = 13203598784715627L;
 
   /**
    * Identifier
@@ -195,6 +195,26 @@ public class Restaurant extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setIsValid(java.util.Date _isValid)
   {
     isValid = _isValid;
+  }
+
+  private java.lang.String status;
+
+  /**
+   * Gets the field status.
+   * @return the value of the field status; may be null.
+   */
+  public java.lang.String getStatus()
+  {
+    return status;
+  }
+
+  /**
+   * Sets the field status.
+   * @param _status the new value of the field status.
+   */
+  public void setStatus(java.lang.String _status)
+  {
+    status = _status;
   }
 
 }

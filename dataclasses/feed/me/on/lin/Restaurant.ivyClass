@@ -26,3 +26,5 @@ menus #fieldCascadeTypes
 menus restaurantId #mappedByFieldName
 isValid java.util.Date #field
 isValid PERSISTENT #fieldModifier
+status String #field
+status PERSISTENT #fieldModifier

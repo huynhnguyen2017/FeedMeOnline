@@ -2,3 +2,11 @@ FeedMeOnlineManagementData #class
 feed.me.on.lin #namespace
 isAuthenticated Boolean #field
 isAuthenticated PERSISTENT #fieldModifier
+doneOrder feed.me.on.lin.Restaurant #field
+doneOrder PERSISTENT #fieldModifier
+items java.util.List<feed.me.on.lin.Menu> #field
+items PERSISTENT #fieldModifier
+restaurants java.util.List<feed.me.on.lin.Restaurant> #field
+restaurants PERSISTENT #fieldModifier
+isAllowTask Boolean #field
+isAllowTask PERSISTENT #fieldModifier

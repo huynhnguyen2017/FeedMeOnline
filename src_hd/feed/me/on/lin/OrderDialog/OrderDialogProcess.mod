@@ -83,12 +83,17 @@ Os0 f0 disableUIEvents true #txt
 Os0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Os0 f0 outParameterDecl '<> result;
+Os0 f0 outParameterDecl '<java.lang.Boolean isAllowTaskFromOrder,feed.me.on.lin.Restaurant doneOrder> result;
+' #txt
+Os0 f0 outParameterMapAction 'result.isAllowTaskFromOrder=in.isAllowTask;
+result.doneOrder=in.orderingRestaurant;
 ' #txt
 Os0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
         <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -422,13 +427,13 @@ Os0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f15 624 362 112 44 -28 -8 #rect
+Os0 f15 624 290 112 44 -28 -8 #rect
 Os0 f15 @|StepIcon #fIcon
 Os0 f17 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
-Os0 f17 787 419 26 26 0 12 #rect
+Os0 f17 851 419 26 26 0 12 #rect
 Os0 f17 @|RichDialogProcessEndIcon #fIcon
 Os0 f53 expr in #txt
-Os0 f53 384 432 787 432 #arcP
+Os0 f53 384 432 851 432 #arcP
 Os0 f41 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 ' #txt
 Os0 f41 actionTable 'out=in;
@@ -490,12 +495,12 @@ Os0 f46 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f46 160 170 128 44 -56 -8 #rect
+Os0 f46 168 170 128 44 -56 -8 #rect
 Os0 f46 @|StepIcon #fIcon
 Os0 f47 expr out #txt
-Os0 f47 61 192 160 192 #arcP
+Os0 f47 61 192 168 192 #arcP
 Os0 f48 expr out #txt
-Os0 f48 224 170 232 86 #arcP
+Os0 f48 232 170 232 86 #arcP
 Os0 f44 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 ' #txt
 Os0 f44 actionTable 'out=in;
@@ -517,13 +522,13 @@ Os0 f44 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f44 792 314 112 44 -51 -8 #rect
+Os0 f44 808 290 112 44 -51 -8 #rect
 Os0 f44 @|StepIcon #fIcon
 Os0 f49 expr out #txt
-Os0 f49 736 384 792 336 #arcP
+Os0 f49 736 312 808 312 #arcP
 Os0 f49 0 0.5000000000000001 0 0 #arcLabel
 Os0 f45 expr out #txt
-Os0 f45 848 358 805 420 #arcP
+Os0 f45 864 334 864 419 #arcP
 Os0 f50 guid 181F5DD225E298C5 #txt
 Os0 f50 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f50 method chooseMyFood() #txt
@@ -619,7 +624,8 @@ Os0 f61 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 Os0 f61 actionTable 'out=in;
 ' #txt
 Os0 f61 actionCode 'import services.OrderService;
-in.items = OrderService.findAllItemsByRestaurantId(in.newRestaurant);' #txt
+in.items = OrderService.findAllItemsByRestaurantId(in.newRestaurant);
+in.isAllowTask = true;' #txt
 Os0 f61 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f61 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -636,7 +642,7 @@ Os0 f62 expr in #txt
 Os0 f62 outCond 'in.isTicketSaved == true' #txt
 Os0 f62 376 424 480 334 #arcP
 Os0 f10 expr out #txt
-Os0 f10 536 332 624 364 #arcP
+Os0 f10 536 312 624 312 #arcP
 >Proto Os0 .type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect

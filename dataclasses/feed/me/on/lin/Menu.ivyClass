@@ -17,5 +17,8 @@ restaurantId MANY_TO_ONE #fieldAssociation
 restaurantId #fieldCascadeTypes
 orders feed.me.on.lin.Orders #field
 orders PERSISTENT #fieldModifier
-orders MANY_TO_ONE #fieldAssociation
+orders ONE_TO_ONE #fieldAssociation
 orders #fieldCascadeTypes
+orders menus #mappedByFieldName
+isValid java.util.Date #field
+isValid PERSISTENT #fieldModifier

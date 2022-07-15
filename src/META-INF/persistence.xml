@@ -3,6 +3,9 @@
     <persistence-unit name="FeedMeOnlineUnit">
         <description>FeedMeOnline DB</description>
         <non-jta-data-source>FeedMeOnlineConnection</non-jta-data-source>
+        <class>feed.me.on.lin.Menu</class>
+        <class>feed.me.on.lin.Orders</class>
+        <class>feed.me.on.lin.Restaurant</class>
         <properties/>
     </persistence-unit>
 </persistence>

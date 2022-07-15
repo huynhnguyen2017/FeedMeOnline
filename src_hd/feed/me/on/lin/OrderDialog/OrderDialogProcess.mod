@@ -26,8 +26,6 @@ Os0 @RichDialogMethodStart f2 '' #zField
 Os0 @GridStep f8 '' #zField
 Os0 @PushWFArc f9 '' #zField
 Os0 @Alternative f6 '' #zField
-Os0 @GridStep f10 '' #zField
-Os0 @PushWFArc f14 '' #zField
 Os0 @PushWFArc f7 '' #zField
 Os0 @RichDialogMethodStart f16 '' #zField
 Os0 @RichDialogProcessEnd f19 '' #zField
@@ -53,7 +51,6 @@ Os0 @RichDialogMethodStart f38 '' #zField
 Os0 @RichDialogProcessEnd f39 '' #zField
 Os0 @GridStep f15 '' #zField
 Os0 @RichDialogProcessEnd f17 '' #zField
-Os0 @PushWFArc f18 '' #zField
 Os0 @PushWFArc f53 '' #zField
 Os0 @GridStep f41 '' #zField
 Os0 @PushWFArc f42 '' #zField
@@ -75,6 +72,9 @@ Os0 @RichDialogEnd f57 '' #zField
 Os0 @RichDialogMethodStart f58 '' #zField
 Os0 @PushWFArc f59 '' #zField
 Os0 @PushWFArc f60 '' #zField
+Os0 @GridStep f61 '' #zField
+Os0 @PushWFArc f62 '' #zField
+Os0 @PushWFArc f10 '' #zField
 >Proto Os0 Os0 OrderDialogProcess #zField
 Os0 f0 guid 181D7FB32D05813C #txt
 Os0 f0 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
@@ -173,7 +173,7 @@ Os0 f8 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 Os0 f8 actionTable 'out=in;
 ' #txt
 Os0 f8 actionCode 'import services.OrderService;
-in.isTicketSaved = OrderService.save(in.newItem, in.newRestaurant);' #txt
+in.isTicketSaved = OrderService.save(in.newItem, in.newRestaurant, in.isItemDisabled);' #txt
 Os0 f8 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -200,27 +200,6 @@ Os0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Os0 f6 352 416 32 32 -40 18 #rect
 Os0 f6 @|AlternativeIcon #fIcon
-Os0 f10 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
-' #txt
-Os0 f10 actionTable 'out=in;
-' #txt
-Os0 f10 actionCode 'import services.OrderService;
-in.items = OrderService.findAllItems();' #txt
-Os0 f10 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
-Os0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>List all items</name>
-        <nameStyle>14,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f10 456 378 112 44 -35 -8 #rect
-Os0 f10 @|StepIcon #fIcon
-Os0 f14 expr in #txt
-Os0 f14 outCond 'in.isTicketSaved == true' #txt
-Os0 f14 381 429 456 400 #arcP
 Os0 f7 expr out #txt
 Os0 f7 280 432 352 432 #arcP
 Os0 f16 guid 181EC3ED9B1DD431 #txt
@@ -229,6 +208,8 @@ Os0 f16 method delete(feed.me.on.lin.Menu) #txt
 Os0 f16 disableUIEvents false #txt
 Os0 f16 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <feed.me.on.lin.Menu item> param = methodEvent.getInputArguments();
+' #txt
+Os0 f16 inParameterMapAction 'out.itemDeleted=param.item;
 ' #txt
 Os0 f16 inActionCode 'import services.OrderService;
 out.itemDeleted = OrderService.deleteItem(param.item);' #txt
@@ -252,8 +233,9 @@ Os0 f21 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 ' #txt
 Os0 f21 actionTable 'out=in;
 ' #txt
-Os0 f21 actionCode 'import services.OrderService;
-in.items = OrderService.findAllItems();' #txt
+Os0 f21 actionCode 'import services.UtilService;
+import services.OrderService;
+in.items = UtilService.filterRemainingItems(in.items, in.itemDeleted);' #txt
 Os0 f21 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -445,8 +427,6 @@ Os0 f15 @|StepIcon #fIcon
 Os0 f17 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f17 787 419 26 26 0 12 #rect
 Os0 f17 @|RichDialogProcessEndIcon #fIcon
-Os0 f18 expr out #txt
-Os0 f18 568 400 624 384 #arcP
 Os0 f53 expr in #txt
 Os0 f53 384 432 787 432 #arcP
 Os0 f41 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
@@ -634,6 +614,29 @@ Os0 f59 expr out #txt
 Os0 f59 360 1344 547 1344 #arcP
 Os0 f60 expr out #txt
 Os0 f60 85 1344 248 1344 #arcP
+Os0 f61 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
+' #txt
+Os0 f61 actionTable 'out=in;
+' #txt
+Os0 f61 actionCode 'import services.OrderService;
+in.items = OrderService.findAllItemsByRestaurantId(in.newRestaurant);' #txt
+Os0 f61 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f61 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>List all items</name>
+        <nameStyle>14,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f61 424 290 112 44 -35 -8 #rect
+Os0 f61 @|StepIcon #fIcon
+Os0 f62 expr in #txt
+Os0 f62 outCond 'in.isTicketSaved == true' #txt
+Os0 f62 376 424 480 334 #arcP
+Os0 f10 expr out #txt
+Os0 f10 536 332 624 364 #arcP
 >Proto Os0 .type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -648,8 +651,6 @@ Os0 f2 mainOut f9 tail #connect
 Os0 f9 head f8 mainIn #connect
 Os0 f8 mainOut f7 tail #connect
 Os0 f7 head f6 in #connect
-Os0 f6 out f14 tail #connect
-Os0 f14 head f10 mainIn #connect
 Os0 f16 mainOut f22 tail #connect
 Os0 f22 head f21 mainIn #connect
 Os0 f21 mainOut f20 tail #connect
@@ -668,9 +669,6 @@ Os0 f33 mainOut f37 tail #connect
 Os0 f37 head f36 mainIn #connect
 Os0 f36 mainOut f35 tail #connect
 Os0 f35 head f34 mainIn #connect
-Os0 f10 mainOut f18 tail #connect
-Os0 f18 head f15 mainIn #connect
-Os0 f6 out f53 tail #connect
 Os0 f53 head f17 mainIn #connect
 Os0 f38 mainOut f42 tail #connect
 Os0 f42 head f41 mainIn #connect
@@ -692,3 +690,8 @@ Os0 f58 mainOut f60 tail #connect
 Os0 f60 head f56 mainIn #connect
 Os0 f56 mainOut f59 tail #connect
 Os0 f59 head f57 mainIn #connect
+Os0 f6 out f62 tail #connect
+Os0 f62 head f61 mainIn #connect
+Os0 f6 out f53 tail #connect
+Os0 f61 mainOut f10 tail #connect
+Os0 f10 head f15 mainIn #connect

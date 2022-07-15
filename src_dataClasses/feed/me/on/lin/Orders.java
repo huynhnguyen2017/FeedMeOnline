@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2589231254459586032L;
+  private static final long serialVersionUID = -7899934002146464209L;
 
   /**
    * Identifier
@@ -76,14 +76,14 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     status = _status;
   }
 
-  @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="orders", orphanRemoval=false)
-  private java.util.List<feed.me.on.lin.Menu> menus;
+  @javax.persistence.OneToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER, orphanRemoval=false)
+  private feed.me.on.lin.Menu menus;
 
   /**
    * Gets the field menus.
    * @return the value of the field menus; may be null.
    */
-  public java.util.List<feed.me.on.lin.Menu> getMenus()
+  public feed.me.on.lin.Menu getMenus()
   {
     return menus;
   }
@@ -92,30 +92,9 @@ public class Orders extends ch.ivyteam.ivy.scripting.objects.CompositeObject
    * Sets the field menus.
    * @param _menus the new value of the field menus.
    */
-  public void setMenus(java.util.List<feed.me.on.lin.Menu> _menus)
+  public void setMenus(feed.me.on.lin.Menu _menus)
   {
     menus = _menus;
-  }
-
-  @javax.persistence.OneToMany(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="billOrders", orphanRemoval=false)
-  private java.util.List<feed.me.on.lin.Bill> bill;
-
-  /**
-   * Gets the field bill.
-   * @return the value of the field bill; may be null.
-   */
-  public java.util.List<feed.me.on.lin.Bill> getBill()
-  {
-    return bill;
-  }
-
-  /**
-   * Sets the field bill.
-   * @param _bill the new value of the field bill.
-   */
-  public void setBill(java.util.List<feed.me.on.lin.Bill> _bill)
-  {
-    bill = _bill;
   }
 
 }

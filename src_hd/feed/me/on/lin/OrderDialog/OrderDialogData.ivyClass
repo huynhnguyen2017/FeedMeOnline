@@ -32,3 +32,5 @@ myMenuFoodId Integer #field
 myMenuFoodId PERSISTENT #fieldModifier
 myOrderNotice String #field
 myOrderNotice PERSISTENT #fieldModifier
+allowNewInput Boolean #field
+allowNewInput PERSISTENT #fieldModifier

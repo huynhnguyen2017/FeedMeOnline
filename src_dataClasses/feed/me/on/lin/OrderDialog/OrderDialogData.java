@@ -7,7 +7,7 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -7326284869475117846L;
+  private static final long serialVersionUID = 3186494997249632825L;
 
   private feed.me.on.lin.Account account;
 
@@ -327,6 +327,26 @@ public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeO
   public void setMyOrderNotice(java.lang.String _myOrderNotice)
   {
     myOrderNotice = _myOrderNotice;
+  }
+
+  private java.lang.Boolean allowNewInput;
+
+  /**
+   * Gets the field allowNewInput.
+   * @return the value of the field allowNewInput; may be null.
+   */
+  public java.lang.Boolean getAllowNewInput()
+  {
+    return allowNewInput;
+  }
+
+  /**
+   * Sets the field allowNewInput.
+   * @param _allowNewInput the new value of the field allowNewInput.
+   */
+  public void setAllowNewInput(java.lang.Boolean _allowNewInput)
+  {
+    allowNewInput = _allowNewInput;
   }
 
 }

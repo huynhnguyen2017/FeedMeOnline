@@ -9,7 +9,7 @@ package feed.me.on.lin;
 public class Menu extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -4615443783508476334L;
+  private static final long serialVersionUID = -7706729979427905484L;
 
   /**
    * Identifier
@@ -97,7 +97,7 @@ public class Menu extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     restaurantId = _restaurantId;
   }
 
-  @javax.persistence.ManyToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER)
+  @javax.persistence.OneToOne(cascade={}, fetch=javax.persistence.FetchType.EAGER, mappedBy="menus", orphanRemoval=false)
   private feed.me.on.lin.Orders orders;
 
   /**
@@ -116,6 +116,26 @@ public class Menu extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setOrders(feed.me.on.lin.Orders _orders)
   {
     orders = _orders;
+  }
+
+  private java.util.Date isValid;
+
+  /**
+   * Gets the field isValid.
+   * @return the value of the field isValid; may be null.
+   */
+  public java.util.Date getIsValid()
+  {
+    return isValid;
+  }
+
+  /**
+   * Sets the field isValid.
+   * @param _isValid the new value of the field isValid.
+   */
+  public void setIsValid(java.util.Date _isValid)
+  {
+    isValid = _isValid;
   }
 
 }

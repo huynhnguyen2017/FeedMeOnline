@@ -1,0 +1,6 @@
+UserProfileComponentData #class
+feed.me.on.lin.UserProfileComponent #namespace
+role String #field
+role PERSISTENT #fieldModifier
+userName String #field
+userName PERSISTENT #fieldModifier

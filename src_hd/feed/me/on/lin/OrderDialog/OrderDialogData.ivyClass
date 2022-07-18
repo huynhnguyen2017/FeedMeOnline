@@ -1,9 +1,5 @@
 OrderDialogData #class
 feed.me.on.lin.OrderDialog #namespace
-username String #field
-username PERSISTENT #fieldModifier
-role String #field
-role PERSISTENT #fieldModifier
 restaurants java.util.List<feed.me.on.lin.Restaurant> #field
 restaurants PERSISTENT #fieldModifier
 items java.util.List<feed.me.on.lin.Menu> #field

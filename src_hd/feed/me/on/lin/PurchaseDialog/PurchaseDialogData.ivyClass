@@ -1,9 +1,5 @@
 PurchaseDialogData #class
 feed.me.on.lin.PurchaseDialog #namespace
-userName String #field
-userName PERSISTENT #fieldModifier
-role String #field
-role PERSISTENT #fieldModifier
 restaurants java.util.List<feed.me.on.lin.Restaurant> #field
 restaurants PERSISTENT #fieldModifier
 items java.util.List<feed.me.on.lin.Menu> #field

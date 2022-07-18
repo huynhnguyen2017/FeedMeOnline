@@ -1,9 +1,5 @@
 GuestOrderFoodListDialogData #class
 feed.me.on.lin.GuestOrderFoodListDialog #namespace
-userName String #field
-userName PERSISTENT #fieldModifier
-role String #field
-role PERSISTENT #fieldModifier
 restaurants java.util.List<feed.me.on.lin.Restaurant> #field
 restaurants PERSISTENT #fieldModifier
 selectedFoodOfRestaurant feed.me.on.lin.Menu #field

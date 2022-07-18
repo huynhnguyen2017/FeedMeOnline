@@ -86,8 +86,7 @@ Gs0 f6 actionTable 'out=in;
 ' #txt
 Gs0 f6 actionCode 'import services.OrderService;
 import services.AuthenticationService;
-in.userName = AuthenticationService.getUserFullName();
-in.role = String.join(", ",AuthenticationService.getUserRole());
+
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("Restaurant List {0}", in.restaurants);
 in.allowInputSomethingElse = false;' #txt

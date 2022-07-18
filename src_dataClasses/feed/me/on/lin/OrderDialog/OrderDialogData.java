@@ -7,47 +7,7 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 1978327214981873010L;
-
-  private java.lang.String username;
-
-  /**
-   * Gets the field username.
-   * @return the value of the field username; may be null.
-   */
-  public java.lang.String getUsername()
-  {
-    return username;
-  }
-
-  /**
-   * Sets the field username.
-   * @param _username the new value of the field username.
-   */
-  public void setUsername(java.lang.String _username)
-  {
-    username = _username;
-  }
-
-  private java.lang.String role;
-
-  /**
-   * Gets the field role.
-   * @return the value of the field role; may be null.
-   */
-  public java.lang.String getRole()
-  {
-    return role;
-  }
-
-  /**
-   * Sets the field role.
-   * @param _role the new value of the field role.
-   */
-  public void setRole(java.lang.String _role)
-  {
-    role = _role;
-  }
+  private static final long serialVersionUID = 3567068658001985334L;
 
   private java.util.List<feed.me.on.lin.Restaurant> restaurants;
 

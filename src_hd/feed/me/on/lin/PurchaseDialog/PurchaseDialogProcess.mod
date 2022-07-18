@@ -27,11 +27,6 @@ Os0 @RichDialogProcessEnd f39 '' #zField
 Os0 @GridStep f41 '' #zField
 Os0 @PushWFArc f42 '' #zField
 Os0 @PushWFArc f40 '' #zField
-Os0 @GridStep f56 '' #zField
-Os0 @RichDialogEnd f57 '' #zField
-Os0 @RichDialogMethodStart f58 '' #zField
-Os0 @PushWFArc f59 '' #zField
-Os0 @PushWFArc f60 '' #zField
 Os0 @RichDialogInitStart f2 '' #zField
 Os0 @RichDialogProcessEnd f6 '' #zField
 Os0 @GridStep f14 '' #zField
@@ -176,51 +171,6 @@ Os0 f42 expr out #txt
 Os0 f42 149 384 320 384 #arcP
 Os0 f40 expr out #txt
 Os0 f40 432 384 555 384 #arcP
-Os0 f56 actionDecl 'feed.me.on.lin.PurchaseDialog.PurchaseDialogData out;
-' #txt
-Os0 f56 actionTable 'out=in;
-' #txt
-Os0 f56 actionCode ivy.session.logoutSessionUser(); #txt
-Os0 f56 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
-Os0 f56 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Logout</name>
-        <nameStyle>6,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f56 360 474 112 44 -19 -8 #rect
-Os0 f56 @|StepIcon #fIcon
-Os0 f57 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
-Os0 f57 guid 181FBD989BA71335 #txt
-Os0 f57 555 483 26 26 0 12 #rect
-Os0 f57 @|RichDialogEndIcon #fIcon
-Os0 f58 guid 181FBDAEE1FABCE0 #txt
-Os0 f58 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
-Os0 f58 method logout() #txt
-Os0 f58 disableUIEvents false #txt
-Os0 f58 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<> param = methodEvent.getInputArguments();
-' #txt
-Os0 f58 outParameterDecl '<> result;
-' #txt
-Os0 f58 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>logout()</name>
-        <nameStyle>8,5,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Os0 f58 123 483 26 26 -21 15 #rect
-Os0 f58 @|RichDialogMethodStartIcon #fIcon
-Os0 f59 expr out #txt
-Os0 f59 472 496 555 496 #arcP
-Os0 f60 expr out #txt
-Os0 f60 149 496 360 496 #arcP
 Os0 f2 guid 182008F15C3BB6A1 #txt
 Os0 f2 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
 Os0 f2 method start(java.util.List<feed.me.on.lin.Menu>,java.util.List<feed.me.on.lin.Restaurant>) #txt
@@ -383,10 +333,6 @@ Os0 f38 mainOut f42 tail #connect
 Os0 f42 head f41 mainIn #connect
 Os0 f41 mainOut f40 tail #connect
 Os0 f40 head f39 mainIn #connect
-Os0 f58 mainOut f60 tail #connect
-Os0 f60 head f56 mainIn #connect
-Os0 f56 mainOut f59 tail #connect
-Os0 f59 head f57 mainIn #connect
 Os0 f14 mainOut f10 tail #connect
 Os0 f10 head f9 mainIn #connect
 Os0 f19 mainOut f18 tail #connect

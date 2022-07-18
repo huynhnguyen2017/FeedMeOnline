@@ -37,10 +37,10 @@ Ft0 @PushWFArc f10 '' #zField
 Ft0 @GridStep f23 '' #zField
 Ft0 @PushWFArc f24 '' #zField
 Ft0 @TkArc f5 '' #zField
-Ft0 @PushWFArc f25 '' #zField
 Ft0 @GridStep f12 '' #zField
 Ft0 @PushWFArc f26 '' #zField
 Ft0 @PushWFArc f27 '' #zField
+Ft0 @PushWFArc f29 '' #zField
 >Proto Ft0 Ft0 FeedMeOnlineManagement #zField
 Ft0 f0 outLink accountHolderManagement.ivp #txt
 Ft0 f0 type feed.me.on.lin.FeedMeOnlineManagementData #txt
@@ -277,7 +277,7 @@ Ft0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f7 1713 369 30 30 -38 17 #rect
+Ft0 f7 1857 305 30 30 -38 17 #rect
 Ft0 f7 @|TaskSwitchSimpleIcon #fIcon
 Ft0 f28 expr out #txt
 Ft0 f28 135 208 392 208 #arcP
@@ -317,19 +317,15 @@ Ft0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f23 1464 362 112 44 -53 -8 #rect
+Ft0 f23 1464 298 112 44 -53 -8 #rect
 Ft0 f23 @|StepIcon #fIcon
 Ft0 f24 expr in #txt
 Ft0 f24 outCond in.isAllowTask #txt
-Ft0 f24 1520 216 1520 362 #arcP
+Ft0 f24 1520 216 1520 298 #arcP
 Ft0 f5 expr out #txt
 Ft0 f5 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f5 var in1 #txt
-Ft0 f5 1576 384 1713 384 #arcP
-Ft0 f25 expr in #txt
-Ft0 f25 664 224 1464 384 #arcP
-Ft0 f25 1 664 384 #addKink
-Ft0 f25 1 0.39518226971983467 0 0 #arcLabel
+Ft0 f5 1576 320 1857 320 #arcP
 Ft0 f12 actionDecl 'feed.me.on.lin.FeedMeOnlineManagementData out;
 ' #txt
 Ft0 f12 actionTable 'out=in;
@@ -352,10 +348,14 @@ Ft0 f12 1792 362 160 44 -74 -8 #rect
 Ft0 f12 @|StepIcon #fIcon
 Ft0 f26 expr data #txt
 Ft0 f26 outCond ivp=="TaskA.ivp" #txt
-Ft0 f26 1743 384 1792 384 #arcP
+Ft0 f26 1872 335 1872 362 #arcP
 Ft0 f26 0 0.5000000000000001 0 0 #arcLabel
 Ft0 f27 expr out #txt
 Ft0 f27 1952 384 2048 384 #arcP
+Ft0 f29 expr in #txt
+Ft0 f29 664 224 1792 384 #arcP
+Ft0 f29 1 664 384 #addKink
+Ft0 f29 1 0.39518226971983467 0 0 #arcLabel
 >Proto Ft0 .type feed.me.on.lin.FeedMeOnlineManagementData #txt
 >Proto Ft0 .processKind NORMAL #txt
 >Proto Ft0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -413,9 +413,9 @@ Ft0 f24 head f23 mainIn #connect
 Ft0 f9 out f10 tail #connect
 Ft0 f23 mainOut f5 tail #connect
 Ft0 f5 head f7 in #connect
-Ft0 f1 out f25 tail #connect
-Ft0 f25 head f23 mainIn #connect
 Ft0 f7 out f26 tail #connect
 Ft0 f26 head f12 mainIn #connect
 Ft0 f12 mainOut f27 tail #connect
 Ft0 f27 head f22 mainIn #connect
+Ft0 f1 out f29 tail #connect
+Ft0 f29 head f12 mainIn #connect

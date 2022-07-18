@@ -18,14 +18,8 @@
 					<p:layoutUnit position="north" resizable="true" size="100"
 						minSize="40" maxSize="200">
 
-						<h:outputText value="Feed Me Online" />
-
-						<div style="float: right;">
-							<h:outputText value="Welcome #{data.username}" />
-							<p:commandButton actionListener="#{logic.logout}" style="margin-left: 10px;" value="Logout" />
-							<br />
-							<h:outputText value="Role: #{data.role}" />
-						</div>
+						<!-- login info -->
+						<ic:feed.me.on.lin.UserProfileComponent ></ic:feed.me.on.lin.UserProfileComponent>
 
 
 					</p:layoutUnit>

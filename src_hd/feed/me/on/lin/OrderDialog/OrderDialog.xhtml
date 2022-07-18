@@ -47,7 +47,7 @@
 							<p:panel style="border: 1px solid black; height: 100px;">
 								<h3 style="float: left;">Ordering Detail</h3>
 								<h:panelGroup style="float: right">
-									<p:commandButton value="Purchase" />
+									<p:commandButton actionListener="#{logic.purchaseFood}" value="Purchase" />
 									<p:commandButton actionListener="#{logic.deleteOrder}"
 										value="Delete" update="form" />
 									<p:commandButton oncomplete="PF('editOrderingDetail').show();"

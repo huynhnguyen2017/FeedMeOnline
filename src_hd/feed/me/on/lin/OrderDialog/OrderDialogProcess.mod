@@ -75,6 +75,11 @@ Os0 @PushWFArc f60 '' #zField
 Os0 @GridStep f61 '' #zField
 Os0 @PushWFArc f62 '' #zField
 Os0 @PushWFArc f10 '' #zField
+Os0 @RichDialogMethodStart f14 '' #zField
+Os0 @RichDialogEnd f18 '' #zField
+Os0 @GridStep f64 '' #zField
+Os0 @PushWFArc f65 '' #zField
+Os0 @PushWFArc f63 '' #zField
 >Proto Os0 Os0 OrderDialogProcess #zField
 Os0 f0 guid 181D7FB32D05813C #txt
 Os0 f0 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
@@ -645,6 +650,51 @@ Os0 f62 outCond 'in.isTicketSaved == true' #txt
 Os0 f62 376 424 480 334 #arcP
 Os0 f10 expr out #txt
 Os0 f10 536 312 624 312 #arcP
+Os0 f14 guid 182103F889FEE199 #txt
+Os0 f14 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f14 method purchaseFood() #txt
+Os0 f14 disableUIEvents false #txt
+Os0 f14 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<> param = methodEvent.getInputArguments();
+' #txt
+Os0 f14 outParameterDecl '<> result;
+' #txt
+Os0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>purchaseFood()</name>
+        <nameStyle>14,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f14 51 1491 26 26 -44 15 #rect
+Os0 f14 @|RichDialogMethodStartIcon #fIcon
+Os0 f18 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f18 guid 182103FD5088FFA3 #txt
+Os0 f18 403 1491 26 26 0 12 #rect
+Os0 f18 @|RichDialogEndIcon #fIcon
+Os0 f64 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
+' #txt
+Os0 f64 actionTable 'out=in;
+' #txt
+Os0 f64 actionCode 'in.isAllowTask = true;' #txt
+Os0 f64 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
+Os0 f64 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Create task for purchase</name>
+        <nameStyle>24,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f64 152 1482 144 44 -67 -8 #rect
+Os0 f64 @|StepIcon #fIcon
+Os0 f65 expr out #txt
+Os0 f65 77 1504 152 1504 #arcP
+Os0 f63 expr out #txt
+Os0 f63 296 1504 403 1504 #arcP
 >Proto Os0 .type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -703,3 +753,7 @@ Os0 f62 head f61 mainIn #connect
 Os0 f6 out f53 tail #connect
 Os0 f61 mainOut f10 tail #connect
 Os0 f10 head f15 mainIn #connect
+Os0 f14 mainOut f65 tail #connect
+Os0 f65 head f64 mainIn #connect
+Os0 f64 mainOut f63 tail #connect
+Os0 f63 head f18 mainIn #connect

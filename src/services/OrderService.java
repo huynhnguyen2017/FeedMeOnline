@@ -110,5 +110,11 @@ public class OrderService {
 		}
 		return getEntityManagement().merge(restaurant);
 	}
+	
+	public static Orders updateOrder(Orders order, String status) {
+		order.setStatus(status);
+		
+		return getEntityManagement().merge(order);
+	}
 
 }

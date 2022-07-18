@@ -678,7 +678,8 @@ Os0 f64 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 ' #txt
 Os0 f64 actionTable 'out=in;
 ' #txt
-Os0 f64 actionCode 'in.isAllowTask = true;' #txt
+Os0 f64 actionCode 'import services.OrderService;
+in.isAllowTask = true;' #txt
 Os0 f64 type feed.me.on.lin.OrderDialog.OrderDialogData #txt
 Os0 f64 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

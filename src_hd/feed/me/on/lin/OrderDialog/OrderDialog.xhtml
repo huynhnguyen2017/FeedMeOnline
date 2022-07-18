@@ -8,7 +8,7 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<h:outputStylesheet library="default" name="css/order-style.css" />
+		<h:outputStylesheet name="/resources/css/guest-order-style.css" />
 
 
 		<ui:define name="title">OrderDialog</ui:define>
@@ -34,7 +34,7 @@
 
 							<ui:repeat value="#{data.restaurants}" var="newRestaurant">
 								<h:commandButton update="orderingDetailId, itemFormDataId"
-									style="position: relative; width: 99%; margin-top: 2px;"
+									style="height: 40px; position: relative; width: 93%; margin-top: 2px; background-color: #d1d1d1; border: none; border-radius: 3px;"
 									value="#{newRestaurant.name}"
 									actionListener="#{logic.displayOrderingTicketDetail(newRestaurant)}" />
 							</ui:repeat>
@@ -44,8 +44,8 @@
 					<p:layoutUnit id="centerOrderingDetail" position="center"
 						style="height: 100%">
 						<div class="card">
-							<p:panel style="border: 1px solid black; height: 100px;">
-								<h3 style="float: left;">Ordering Detail</h3>
+							<div class="flex-container" style="min-height: 70px; display: flex; align-items: center;">
+								<h3 style="flex-grow: 10">Ordering Detail</h3>
 								<h:panelGroup style="float: right">
 									<p:commandButton actionListener="#{logic.purchaseFood}" value="Purchase" />
 									<p:commandButton actionListener="#{logic.deleteOrder}"
@@ -53,25 +53,25 @@
 									<p:commandButton oncomplete="PF('editOrderingDetail').show();"
 										value="My Order" />
 								</h:panelGroup>
-							</p:panel>
+							</div>
 							<p:panel>
 								<h:panelGroup id="orderingDetailId">
-									<p:outputLabel value="Restaurant: " />
+									<p:outputLabel style="color: black;" value="Restaurant: " />
 									<h:outputText value="#{data.orderingRestaurant.name}" />
-									<p:outputLabel value="Website: " style="margin-left: 50px;" />
-									<h:outputText value="#{data.orderingRestaurant.website}" />
-									<p:outputLabel value="Phone: " style="margin-left: 50px;" />
+									<p:outputLabel value="Website: " style="margin-left: 50px; color: black;" />
+									<a href="#"><h:outputText value="#{data.orderingRestaurant.website}" /></a>
+									<p:outputLabel value="Phone: " style="margin-left: 50px; color: black;" />
 									<h:outputText value="#{data.orderingRestaurant.phone}" />
 									<p:outputLabel value="Created Date: "
-										style="margin-left: 50px;" />
+										style="margin-left: 50px; color: black;" />
 									<h:outputText value="" />
-									<p:outputLabel value="Total: " style="margin-left: 50px;" />
+									<p:outputLabel value="Total: " style="margin-left: 50px; color: black;" />
 									<h:outputText value="" />
 								</h:panelGroup>
 							</p:panel>
 
 							<p:panel>
-								<p:dataTable styleClass="menuDisplayClass" id="itemFormDataId"
+								<p:dataTable styleClass="noHeader" id="itemFormDataId"
 									style="border-style: none;" var="item"
 									value="#{data.orderingItems}">
 									<p:column style="width: 10%; text-align: center;">

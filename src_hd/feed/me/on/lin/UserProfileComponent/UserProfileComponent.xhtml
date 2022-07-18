@@ -12,17 +12,21 @@
 </cc:interface>
 
 <cc:implementation>
+	<div style="display: flex; align-items: center;">
 
-	<h:outputText value="Feed Me Online" />
+		<h1 style="flex-grow: 10;">Feed Me Online</h1>
 
-	<div style="float: right;">
-		<h:outputText value="Welcome #{data.userName}" />
-		<p:commandButton actionListener="#{logic.logout}"
-			style="margin-left: 10px;" value="Logout"/>
-		<br />
-		<h:outputText value="Role: #{data.role}" />
+		<div style="flex-grow: 1;">
+			<h:outputText value="Welcome #{data.userName}" />
+			<br />
+			<h:outputText value="Role: #{data.role}" />
+		</div>
+		
+		<div style="display:flex; justify-content: flex-end;">
+			<p:commandButton  actionListener="#{logic.logout}"
+				style="border-radius: 10px; margin-left: 10px;" value="Logout" />
+		</div>
 	</div>
-
 
 </cc:implementation>
 </html>

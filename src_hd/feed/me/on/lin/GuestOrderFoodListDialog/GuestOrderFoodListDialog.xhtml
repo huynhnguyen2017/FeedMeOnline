@@ -51,7 +51,7 @@
 
 				<!-- Popup guest order foods -->
 				<p:dialog header="I'm hungry..." widgetVar="editGuestOrderingDetail"
-					modal="true" height="300">
+					modal="true" height="500" width="550" style="oveflow-x: hidden;">
 					<p:remoteCommand name="updateOrderingListByGuest" update="myOrderIdByGuest" />
 					<div>
 						<h:panelGroup id="myOrderIdByGuest">
@@ -68,10 +68,10 @@
 										<a>#{data.orderingRestaurantByGuest.website}</a>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" style="margin-top:30px;">
 									<span>
 										I want to order
-										<p:selectOneMenu id="chooseOrderingMenuOptionByGuest"
+										<p:selectOneMenu panelStyle="width:280px;" id="chooseOrderingMenuOptionByGuest"
 											value="#{data.myMenuFoodIdByGuest}">
 											<f:selectItem itemValue="-10000000" itemLabel="Choose one..." />
 											<f:selectItems value="#{data.orderingFoodsByGuest}"
@@ -80,9 +80,14 @@
 											<f:selectItem itemDisabled="#{not data.orderingRestaurantByGuest.allowNewInput}" itemValue="-9999999" itemLabel="Something Else" />
 											<p:ajax oncomplete="updateOrderingListByGuest()" listener="#{logic.chooseMyFoodByGuest(data.orderingFoodsByGuest, data.myMenuFoodIdByGuest)}" />
 										</p:selectOneMenu>
-										<h:outputText rendered="#{not data.allowInputSomethingElse}">It price is <strong>#{data.selectedFoodOfRestaurant.price} VND</strong></h:outputText> 
+										<br />
+										<br />
+										<h:outputText rendered="#{not data.allowInputSomethingElse}">It price is <strong>#{data.selectedFoodOfRestaurant.price} VND</strong></h:outputText>
+										<br /> 
 										<h:outputText rendered="#{data.allowInputSomethingElse}">its name is <p:inputText /> with price is <p:inputText />
 										</h:outputText>
+										<br />
+										<br />
 										and my notice is
 										<h:inputText value="#{data.myOrderNoticeByGuest}" />
 										. Thanks!

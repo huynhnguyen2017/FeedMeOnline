@@ -127,8 +127,12 @@ Os0 f12 actionDecl 'feed.me.on.lin.OrderDialog.OrderDialogData out;
 ' #txt
 Os0 f12 actionTable 'out=in;
 ' #txt
-Os0 f12 actionCode 'import services.UtilService;
+Os0 f12 actionCode 'import services.AuthenticationService;
+import services.UtilService;
 import services.OrderService;
+
+in.username = AuthenticationService.getUserFullName();
+in.role = String.join(", ", AuthenticationService.getUserRole());
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("restaurant here {0}", in.restaurants);
 in.items = OrderService.findAllItems();

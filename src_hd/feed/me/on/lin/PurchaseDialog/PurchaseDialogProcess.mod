@@ -34,7 +34,6 @@ Os0 @PushWFArc f59 '' #zField
 Os0 @PushWFArc f60 '' #zField
 Os0 @RichDialogInitStart f2 '' #zField
 Os0 @RichDialogProcessEnd f6 '' #zField
-Os0 @PushWFArc f7 '' #zField
 Os0 @GridStep f14 '' #zField
 Os0 @GridStep f19 '' #zField
 Os0 @RichDialogEnd f9 '' #zField
@@ -45,6 +44,9 @@ Os0 @RichDialogProcessStart f8 '' #zField
 Os0 @PushWFArc f15 '' #zField
 Os0 @RichDialogProcessStart f16 '' #zField
 Os0 @PushWFArc f20 '' #zField
+Os0 @GridStep f21 '' #zField
+Os0 @PushWFArc f22 '' #zField
+Os0 @PushWFArc f7 '' #zField
 >Proto Os0 Os0 PurchaseDialogProcess #zField
 Os0 f0 guid 181D7FB32D05813C #txt
 Os0 f0 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
@@ -96,8 +98,12 @@ Os0 f12 actionDecl 'feed.me.on.lin.PurchaseDialog.PurchaseDialogData out;
 ' #txt
 Os0 f12 actionTable 'out=in;
 ' #txt
-Os0 f12 actionCode 'import services.UtilService;
+Os0 f12 actionCode 'import services.AuthenticationService;
+import services.UtilService;
 import services.OrderService;
+
+in.userName = AuthenticationService.getUserFullName();
+in.role = String.join(", ",AuthenticationService.getUserRole());
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("restaurant here {0}", in.restaurants);
 in.items = OrderService.findAllItems();
@@ -243,8 +249,6 @@ Os0 f2 @|RichDialogInitStartIcon #fIcon
 Os0 f6 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
 Os0 f6 547 147 26 26 0 12 #rect
 Os0 f6 @|RichDialogProcessEndIcon #fIcon
-Os0 f7 expr out #txt
-Os0 f7 141 160 547 160 #arcP
 Os0 f14 actionDecl 'feed.me.on.lin.PurchaseDialog.PurchaseDialogData out;
 ' #txt
 Os0 f14 actionTable 'out=in;
@@ -333,6 +337,38 @@ Os0 f16 115 691 26 26 -15 15 #rect
 Os0 f16 @|RichDialogProcessStartIcon #fIcon
 Os0 f20 expr out #txt
 Os0 f20 141 704 280 704 #arcP
+Os0 f21 actionDecl 'feed.me.on.lin.PurchaseDialog.PurchaseDialogData out;
+' #txt
+Os0 f21 actionTable 'out=in;
+' #txt
+Os0 f21 actionCode 'import services.AuthenticationService;
+import services.UtilService;
+import services.OrderService;
+
+in.userName = AuthenticationService.getUserFullName();
+in.role = String.join(", ",AuthenticationService.getUserRole());
+in.restaurants = OrderService.queryAllRestaurants();
+ivy.log.info("restaurant here {0}", in.restaurants);
+in.items = OrderService.findAllItems();
+ivy.log.info("items here {0}", in.items);
+in.orderingRestaurant = (!in.restaurants.isEmpty() ? in.restaurants.get(0) : null);
+in.orderingItems = UtilService.findItemsByRestaurantIds(in.items, in.orderingRestaurant.id);' #txt
+Os0 f21 type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
+Os0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>List all restaurants</name>
+        <nameStyle>20,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f21 344 138 112 44 -51 -8 #rect
+Os0 f21 @|StepIcon #fIcon
+Os0 f22 expr out #txt
+Os0 f22 141 160 344 160 #arcP
+Os0 f7 expr out #txt
+Os0 f7 456 160 547 160 #arcP
 >Proto Os0 .type feed.me.on.lin.PurchaseDialog.PurchaseDialogData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -351,8 +387,6 @@ Os0 f58 mainOut f60 tail #connect
 Os0 f60 head f56 mainIn #connect
 Os0 f56 mainOut f59 tail #connect
 Os0 f59 head f57 mainIn #connect
-Os0 f2 mainOut f7 tail #connect
-Os0 f7 head f6 mainIn #connect
 Os0 f14 mainOut f10 tail #connect
 Os0 f10 head f9 mainIn #connect
 Os0 f19 mainOut f18 tail #connect
@@ -361,3 +395,7 @@ Os0 f8 mainOut f15 tail #connect
 Os0 f15 head f14 mainIn #connect
 Os0 f16 mainOut f20 tail #connect
 Os0 f20 head f19 mainIn #connect
+Os0 f2 mainOut f22 tail #connect
+Os0 f22 head f21 mainIn #connect
+Os0 f21 mainOut f7 tail #connect
+Os0 f7 head f6 mainIn #connect

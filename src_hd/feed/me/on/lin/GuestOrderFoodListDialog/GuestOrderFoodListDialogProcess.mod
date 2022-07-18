@@ -90,7 +90,7 @@ in.userName = AuthenticationService.getUserFullName();
 in.role = String.join(", ",AuthenticationService.getUserRole());
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("Restaurant List {0}", in.restaurants);
-in.allowInputSomethingElse = true;' #txt
+in.allowInputSomethingElse = false;' #txt
 Gs0 f6 type feed.me.on.lin.GuestOrderFoodListDialog.GuestOrderFoodListDialogData #txt
 Gs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -136,7 +136,8 @@ Gs0 f11 actionDecl 'feed.me.on.lin.GuestOrderFoodListDialog.GuestOrderFoodListDi
 ' #txt
 Gs0 f11 actionTable 'out=in;
 ' #txt
-Gs0 f11 actionCode 'in.orderingFoodsByGuest = in.orderingRestaurantByGuest.getMenus();' #txt
+Gs0 f11 actionCode 'in.orderingFoodsByGuest = in.orderingRestaurantByGuest.getMenus();
+ivy.log.info("Log hoa su {0}", in.orderingRestaurantByGuest);' #txt
 Gs0 f11 type feed.me.on.lin.GuestOrderFoodListDialog.GuestOrderFoodListDialogData #txt
 Gs0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

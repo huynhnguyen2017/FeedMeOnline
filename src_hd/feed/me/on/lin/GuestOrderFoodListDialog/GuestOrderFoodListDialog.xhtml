@@ -83,7 +83,7 @@
 											<f:selectItems value="#{data.orderingFoodsByGuest}"
 												var="orderingItem" itemLabel="#{orderingItem.name}"
 												itemValue="#{orderingItem.id}" />
-											<f:selectItem itemDisabled="#{data.orderingRestaurantByGuest.allowNewInput}" itemValue="-9999999" itemLabel="Something Else" />
+											<f:selectItem itemDisabled="#{not data.orderingRestaurantByGuest.allowNewInput}" itemValue="-9999999" itemLabel="Something Else" />
 											<p:ajax oncomplete="updateOrderingListByGuest()" listener="#{logic.chooseMyFoodByGuest(data.orderingFoodsByGuest, data.myMenuFoodIdByGuest)}" />
 										</p:selectOneMenu>
 										<h:outputText rendered="#{not data.allowInputSomethingElse}">It price is <strong>#{data.selectedFoodOfRestaurant.price} VND</strong></h:outputText> 

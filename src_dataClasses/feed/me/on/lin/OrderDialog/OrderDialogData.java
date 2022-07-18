@@ -7,26 +7,26 @@ package feed.me.on.lin.OrderDialog;
 public class OrderDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -1640921286806765687L;
+  private static final long serialVersionUID = 1978327214981873010L;
 
-  private feed.me.on.lin.Account account;
+  private java.lang.String username;
 
   /**
-   * Gets the field account.
-   * @return the value of the field account; may be null.
+   * Gets the field username.
+   * @return the value of the field username; may be null.
    */
-  public feed.me.on.lin.Account getAccount()
+  public java.lang.String getUsername()
   {
-    return account;
+    return username;
   }
 
   /**
-   * Sets the field account.
-   * @param _account the new value of the field account.
+   * Sets the field username.
+   * @param _username the new value of the field username.
    */
-  public void setAccount(feed.me.on.lin.Account _account)
+  public void setUsername(java.lang.String _username)
   {
-    account = _account;
+    username = _username;
   }
 
   private java.lang.String role;

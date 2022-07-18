@@ -261,7 +261,7 @@ Ft0 f7 outLinks "TaskA.ivp" #txt
 Ft0 f7 taskData 'TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=<%\=in1.doneOrder.name%> is <%\=in1.doneOrder.status%>
+TaskA.NAM=You have new task for restaurant <%\=in1.doneOrder.name%>
 TaskA.PRI=2
 TaskA.ROL=Purchasing Manager
 TaskA.SKIP_TASK_LIST=false

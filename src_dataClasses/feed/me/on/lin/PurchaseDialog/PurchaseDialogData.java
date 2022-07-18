@@ -7,26 +7,26 @@ package feed.me.on.lin.PurchaseDialog;
 public class PurchaseDialogData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 8426187808894209500L;
+  private static final long serialVersionUID = -8745429736729822457L;
 
-  private feed.me.on.lin.Account account;
+  private java.lang.String userName;
 
   /**
-   * Gets the field account.
-   * @return the value of the field account; may be null.
+   * Gets the field userName.
+   * @return the value of the field userName; may be null.
    */
-  public feed.me.on.lin.Account getAccount()
+  public java.lang.String getUserName()
   {
-    return account;
+    return userName;
   }
 
   /**
-   * Sets the field account.
-   * @param _account the new value of the field account.
+   * Sets the field userName.
+   * @param _userName the new value of the field userName.
    */
-  public void setAccount(feed.me.on.lin.Account _account)
+  public void setUserName(java.lang.String _userName)
   {
-    account = _account;
+    userName = _userName;
   }
 
   private java.lang.String role;

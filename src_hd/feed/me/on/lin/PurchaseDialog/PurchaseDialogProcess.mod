@@ -97,8 +97,6 @@ Os0 f12 actionCode 'import services.AuthenticationService;
 import services.UtilService;
 import services.OrderService;
 
-in.userName = AuthenticationService.getUserFullName();
-in.role = String.join(", ",AuthenticationService.getUserRole());
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("restaurant here {0}", in.restaurants);
 in.items = OrderService.findAllItems();
@@ -295,8 +293,6 @@ Os0 f21 actionCode 'import services.AuthenticationService;
 import services.UtilService;
 import services.OrderService;
 
-in.userName = AuthenticationService.getUserFullName();
-in.role = String.join(", ",AuthenticationService.getUserRole());
 in.restaurants = OrderService.queryAllRestaurants();
 ivy.log.info("restaurant here {0}", in.restaurants);
 in.items = OrderService.findAllItems();

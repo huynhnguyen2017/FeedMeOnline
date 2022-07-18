@@ -41,6 +41,9 @@ Ft0 @GridStep f12 '' #zField
 Ft0 @PushWFArc f26 '' #zField
 Ft0 @PushWFArc f27 '' #zField
 Ft0 @PushWFArc f29 '' #zField
+Ft0 @GridStep f30 '' #zField
+Ft0 @PushWFArc f31 '' #zField
+Ft0 @PushWFArc f25 '' #zField
 >Proto Ft0 Ft0 FeedMeOnlineManagement #zField
 Ft0 f0 outLink accountHolderManagement.ivp #txt
 Ft0 f0 type feed.me.on.lin.FeedMeOnlineManagementData #txt
@@ -68,7 +71,7 @@ Ft0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ft0 f0 @C|.responsibility Everybody #txt
-Ft0 f0 105 193 30 30 -85 17 #rect
+Ft0 f0 105 225 30 30 -85 17 #rect
 Ft0 f0 @|StartRequestIcon #fIcon
 Ft0 f3 targetWindow NEW #txt
 Ft0 f3 targetDisplay TOP #txt
@@ -120,7 +123,7 @@ Ft0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f8 904 186 112 44 -47 -8 #rect
+Ft0 f8 904 218 112 44 -47 -8 #rect
 Ft0 f8 @|RichDialogIcon #fIcon
 Ft0 f11 targetWindow NEW #txt
 Ft0 f11 targetDisplay TOP #txt
@@ -144,7 +147,7 @@ Ft0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f11 904 34 112 44 -46 -8 #rect
+Ft0 f11 912 138 112 44 -46 -8 #rect
 Ft0 f11 @|RichDialogIcon #fIcon
 Ft0 f1 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -156,14 +159,14 @@ Ft0 f1 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f1 648 192 32 32 -29 18 #rect
+Ft0 f1 648 224 32 32 -29 18 #rect
 Ft0 f1 @|AlternativeIcon #fIcon
 Ft0 f15 expr in #txt
 Ft0 f15 outCond services.AuthenticationService.getUserRole().contains("Guest") #txt
-Ft0 f15 675 203 917 78 #arcP
+Ft0 f15 677 237 912 160 #arcP
 Ft0 f16 expr in #txt
 Ft0 f16 outCond 'services.AuthenticationService.getUserRole().contains("Ordering Manager")' #txt
-Ft0 f16 680 208 904 208 #arcP
+Ft0 f16 680 240 904 240 #arcP
 Ft0 f17 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -174,7 +177,7 @@ Ft0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f17 392 192 32 32 -67 18 #rect
+Ft0 f17 392 224 32 32 -67 18 #rect
 Ft0 f17 @|AlternativeIcon #fIcon
 Ft0 f2 expr in #txt
 Ft0 f2 outCond 'ivy.session.getSessionUser() != null' #txt
@@ -187,7 +190,7 @@ Ft0 f2 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f2 424 208 648 208 #arcP
+Ft0 f2 424 240 648 240 #arcP
 Ft0 f20 actionDecl 'feed.me.on.lin.FeedMeOnlineManagementData out;
 ' #txt
 Ft0 f20 actionTable 'out=in;
@@ -208,7 +211,7 @@ Ft0 f20 @|StepIcon #fIcon
 Ft0 f21 expr out #txt
 Ft0 f21 464 88 576 88 #arcP
 Ft0 f18 expr out #txt
-Ft0 f18 591 110 418 202 #arcP
+Ft0 f18 632 110 418 234 #arcP
 Ft0 f19 expr in #txt
 Ft0 f19 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -219,7 +222,7 @@ Ft0 f19 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ft0 f19 408 192 408 110 #arcP
+Ft0 f19 408 224 408 110 #arcP
 Ft0 f19 0 0.7246571063735615 0 0 #arcLabel
 Ft0 f13 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f13 2081 41 30 30 0 15 #rect
@@ -280,11 +283,11 @@ Ft0 f7 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ft0 f7 1857 305 30 30 -38 17 #rect
 Ft0 f7 @|TaskSwitchSimpleIcon #fIcon
 Ft0 f28 expr out #txt
-Ft0 f28 135 208 392 208 #arcP
+Ft0 f28 135 240 392 240 #arcP
 Ft0 f4 expr out #txt
 Ft0 f4 2104 362 2096 70 #arcP
 Ft0 f6 expr out #txt
-Ft0 f6 1016 56 2081 56 #arcP
+Ft0 f6 1024 160 2081 57 #arcP
 Ft0 f6 0 0.49999999999999994 0 0 #arcLabel
 Ft0 f9 type feed.me.on.lin.FeedMeOnlineManagementData #txt
 Ft0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -299,7 +302,7 @@ Ft0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ft0 f9 1504 184 32 32 -29 18 #rect
 Ft0 f9 @|AlternativeIcon #fIcon
 Ft0 f14 expr out #txt
-Ft0 f14 1016 208 1504 200 #arcP
+Ft0 f14 1016 240 1505 201 #arcP
 Ft0 f14 0 0.3286193973486598 0 0 #arcLabel
 Ft0 f10 expr in #txt
 Ft0 f10 1533 197 2081 59 #arcP
@@ -353,9 +356,34 @@ Ft0 f26 0 0.5000000000000001 0 0 #arcLabel
 Ft0 f27 expr out #txt
 Ft0 f27 1952 384 2048 384 #arcP
 Ft0 f29 expr in #txt
-Ft0 f29 664 224 1792 384 #arcP
+Ft0 f29 outCond 'services.AuthenticationService.getUserRole().contains("Purchasing Manager")' #txt
+Ft0 f29 664 256 1792 384 #arcP
 Ft0 f29 1 664 384 #addKink
 Ft0 f29 1 0.39518226971983467 0 0 #arcLabel
+Ft0 f30 actionDecl 'feed.me.on.lin.FeedMeOnlineManagementData out;
+' #txt
+Ft0 f30 actionTable 'out=in;
+' #txt
+Ft0 f30 actionCode ivy.session.logoutSessionUser(); #txt
+Ft0 f30 type feed.me.on.lin.FeedMeOnlineManagementData #txt
+Ft0 f30 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>No role require new login</name>
+        <nameStyle>25,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ft0 f30 904 26 144 44 -69 -8 #rect
+Ft0 f30 @|StepIcon #fIcon
+Ft0 f31 expr in #txt
+Ft0 f31 674 234 976 70 #arcP
+Ft0 f31 0 0.4241242692704968 0 0 #arcLabel
+Ft0 f25 expr out #txt
+Ft0 f25 904 48 408 66 #arcP
+Ft0 f25 1 408 48 #addKink
+Ft0 f25 0 0.5212226378160653 0 0 #arcLabel
 >Proto Ft0 .type feed.me.on.lin.FeedMeOnlineManagementData #txt
 >Proto Ft0 .processKind NORMAL #txt
 >Proto Ft0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -419,3 +447,7 @@ Ft0 f12 mainOut f27 tail #connect
 Ft0 f27 head f22 mainIn #connect
 Ft0 f1 out f29 tail #connect
 Ft0 f29 head f12 mainIn #connect
+Ft0 f1 out f31 tail #connect
+Ft0 f31 head f30 mainIn #connect
+Ft0 f30 mainOut f25 tail #connect
+Ft0 f25 head f3 mainIn #connect
